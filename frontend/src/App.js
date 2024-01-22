@@ -11,7 +11,7 @@ function App() {
     <div className="App " >
       <BrowserRouter>
         <NavBar />
-        <div className="pages">
+        <div className="pages flex flex-col min-h-screen">
           <Routes>
             <Route path="/athletes" element={<AthletesPage />} />
             <Route path="/products" element={<ProductsPage />} />

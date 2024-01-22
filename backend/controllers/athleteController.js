@@ -48,16 +48,8 @@ const updateAthleteById = async (req, res) => {
   }
 };
 
-// Delete an athlete by ID
-// const deleteAthleteById = async (req, res) => {
-//   try {
-//     await Athlete.findByIdAndRemove(req.params.id);
-//     res.json({ message: 'Athlete deleted' });
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
 
+// Delete an athlete by ID
 const deleteAthleteById = async (req, res) => {
   const {id} = req.params
    if (!mongoose.Types.ObjectId.isValid(id)) {

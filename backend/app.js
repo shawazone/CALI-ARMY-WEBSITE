@@ -5,8 +5,15 @@ const mongoose = require('mongoose');
 
 const athleteRouter = require('./routes/athleteRoutes');
  
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT;
+
+
+
+// Enable CORS for all routes
+app.use(cors());
+
 
 
 //middleware
