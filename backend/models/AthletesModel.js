@@ -26,10 +26,10 @@ const athleteSchema = new mongoose.Schema({
     },
 
 
-    image: {
-      type: String, // Assuming you store the image URL as a string
+    images: [{
+      type: String,
       required: true,
-    },
+    }],
   },{timestamps: true});//timestamps will automatically create a createdAt and updatedAt field for us
 
 const Athlete = mongoose.model('Athlete', athleteSchema);

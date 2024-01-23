@@ -8,6 +8,7 @@ import AboutUsPage from "./Pages/AboutUsPage";
 import SingleAthletePage from "./Pages/athletes-related/SingleAthletePage";
 import SingleProductPage from "./Pages/product-related/SingleProductPage";
 import Footer from "./Components/Footer";
+import HomePage from "./Pages/HomePage";
 function App() {
   return (
     <div className="App " >
@@ -15,6 +16,7 @@ function App() {
         <NavBar />
         <div className="pages flex flex-col min-h-screen">
           <Routes>
+            <Route path="/" element={<HomePage />} />
             <Route path="/athletes" element={<AthletesPage />} />
             <Route path="/athletes/:id" element={<SingleAthletePage />} />
             <Route path="/products" element={<ProductsPage />} />

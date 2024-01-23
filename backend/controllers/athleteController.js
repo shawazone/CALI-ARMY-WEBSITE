@@ -14,7 +14,7 @@ const mongoose = require('mongoose');
 // Get all athletes
 const getAllAthletes = async (req, res) => {
   try {
-    const athletes = await Athlete.find({}).sort({createdAt: -1}); //sorts by most recent
+    const athletes = await Athlete.find({}).sort({createdAt: 1}); //sorts by most recent
     res.status(200).json(athletes);
   
   } catch (error) {
@@ -49,7 +49,7 @@ const getAthleteById = async (req, res) => {
 // Create a new athlete
 const createAthlete = async (req, res) => {
   // const athlete = new Athlete(req.body);
-  const {name, specialty, description,insta,image} = req.body
+  const {name, specialty, description,insta,images} = req.body
 
   let emtyFields = []
   
@@ -69,9 +69,8 @@ const createAthlete = async (req, res) => {
     emtyFields.push('insta')
   
   }
-  if (!image) {
-    emtyFields.push('image')
-  
+  if (!images || images.length === 0) {
+    emptyFields.push('images');
   }
   if (emtyFields.length > 0) {
      return res.status(400).json({error: 'please fill in the following fields', emtyFields})
@@ -79,7 +78,7 @@ const createAthlete = async (req, res) => {
 
 
   try {
-    const athlete = await Athlete.create({name, specialty, description,insta,image})
+    const athlete = await Athlete.create({name, specialty, description,insta,images})
     res.status(200).json(athlete)
   } catch (error) {
     res.status(400).json({error: error.message})
