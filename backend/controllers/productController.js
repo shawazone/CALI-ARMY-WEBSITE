@@ -71,7 +71,65 @@ const createProduct = async (req, res) => {
      }
 
      try{
-        const product = await Product.create({name,description,})
+        const product = await Product.create({name,description,price,quantity,image})
+        res.status(201).json(product)
      }
+        catch(error){
+            res.status(500).json({message: error.message});
+        }
 
 }
+
+
+
+
+// Update a product by ID
+const updateProductById = async (req, res) => {
+    const {id} = req.params
+    const {name,description,price,quantity,image} = req.body
+
+    try {
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            res.status(400).json({error: 'Invalid ID'})
+        }
+        const product = await Product.findById(id);
+        if(!product){
+            return res.status(400).json({message: 'Product not found'});
+        }
+        const updatedProduct = await Product.findByIdAndUpdate(id, {name, description,price,quantity,  image}, {new: true});
+        res.status(200).json(updatedProduct);
+    }catch (error){
+        res.status(500).json({message: error.message});
+    }
+        
+    };
+
+
+// Delete a product by ID
+
+const deleteProductById = async (req, res) => {
+    const {id} = req.params
+    try {
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            res.status(400).json({error: 'Invalid ID'})
+        }
+        const product = await Product.findById(id);
+        if(!product){
+            return res.status(400).json({message: 'Product not found'});
+        }
+        await Product.findByIdAndDelete(id);
+        res.status(200).json({message: 'Product deleted successfully'});
+    }catch (error){
+        res.status(500).json({message: error.message});
+    }
+        
+    };
+
+
+    module.exports = {
+        getAllProducts,
+        getProdictById,
+        createProduct,
+        updateProductById,
+        deleteProductById
+    }

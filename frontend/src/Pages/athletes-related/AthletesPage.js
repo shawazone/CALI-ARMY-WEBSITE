@@ -24,7 +24,7 @@ const AthletePage = () => {
 
   console.log(athletes);
   return (
-    <div className="flex flex-wrap justify-around">
+    <div className="flex flex-wrap justify-center ">
     {athletes.length === 0 ? (
       <p className="text-xl font-bold">There are no athletes.</p>
     ) : (

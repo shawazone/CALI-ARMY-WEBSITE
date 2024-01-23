@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const athleteRouter = require('./routes/athleteRoutes');
- 
+const productRouter = require('./routes/productRoutes');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT;
@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
 
 // app.use('/api/athletes', athleteRouter);
 app.use('/api',  athleteRouter);
+app.use('/api',  productRouter);
 
 
 
