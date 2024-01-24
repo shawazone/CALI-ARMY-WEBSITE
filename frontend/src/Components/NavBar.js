@@ -30,6 +30,9 @@ const NavBar = () => {
           <Link to="/products" className="block text-xl text-white hover:text-red-400 p-4">
             Products
           </Link>
+          <Link to="/events" className="block text-xl text-white hover:text-red-400 p-4">
+            Events
+          </Link>
           <Link to="/programs" className="block text-xl text-white hover:text-red-400 p-4">
             Programs
           </Link>
@@ -57,6 +60,9 @@ const NavBar = () => {
           </Link>
           <Link to="/products" className="block hover:text-red-400 p-4">
             Products
+          </Link>
+          <Link to="/events" className="block text-xl text-white hover:text-red-400 p-4">
+            Events
           </Link>
           <Link to="/programs" className="block hover:text-red-400 p-4">
             Programs

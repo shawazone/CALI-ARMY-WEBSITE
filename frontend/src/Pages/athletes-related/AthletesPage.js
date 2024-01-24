@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
-import AthleteCard from '../../Components/AthleteCard';
+import AthleteCard from '../../Components/Cards/AthleteCard';
 import { Link } from 'react-router-dom';
 
 const AthletePage = () => {
@@ -29,9 +29,9 @@ const AthletePage = () => {
       <p className="text-xl font-bold">There are no athletes.</p>
     ) : (
       athletes.map((athlete) => (
-        <Link to={`/athletes/${athlete._id}`} key={athlete._id} state={{ athlete }}>
+        // <Link to={`/athletes/${athlete._id}`} key={athlete._id} state={{ athlete }}>
           <AthleteCard athlete={athlete} />
-        </Link>
+        // </Link>
       ))
     )}
   </div>

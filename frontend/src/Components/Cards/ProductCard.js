@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
       <p><span className="font-bold">Description:</span> {product.description}</p>
       <p><span className="font-bold">Price:</span> {product.price}</p>
       <p><span className="font-bold">Quantity:</span> {product.quantity}</p>
-      <img src={product.image} alt={`${product.name}'s Image`} className="mt-4 w-60 h-80 object-cover" />
+      <img src={product.image} alt={`${product.name}`} className="mt-4 w-60 h-80 object-cover" />
       <Link to={`/products/${product._id}`} className="text-blue-500 block mt-2">View Details</Link>
     </div>
   );
