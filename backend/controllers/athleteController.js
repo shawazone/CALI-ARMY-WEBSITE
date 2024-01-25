@@ -90,11 +90,38 @@ const createAthlete = async (req, res) => {
 // Update an athlete by ID
 const updateAthleteById = async (req, res) => {
   const {id} = req.params
+  const {name, specialty, description,insta,images} = req.body
+
+  let emptyFields = []
+  
+  if (!name) {
+      emptyFields.push('name')
+  
+  }
+  if (!specialty) {
+      emptyFields.push('specialty')
+  
+  }
+  if (!description) {
+      emptyFields.push('description')
+  
+  }
+  if (!insta) {
+    emptyFields.push('insta')
+  
+  }
+  if (!images || images.length === 0) {
+    emptyFields.push('images');
+  }
+  if (emptyFields.length > 0) {
+     return res.status(400).json({error: 'please fill in the following fields', emptyFields})
+  }
+
   if (!mongoose.Types.ObjectId.isValid(id)) {
         res.status(400).json({error: 'Invalid ID'})
   }
   try {
-    const updatedAthlete = await Athlete.findByIdAndUpdate(id, req.body, { new: true });
+    const updatedAthlete = await Athlete.findByIdAndUpdate(id, {name, specialty, description,insta,images}, { new: true });
     res.json(updatedAthlete);
   } catch (error) {
     res.status(400).json({ message: error.message });

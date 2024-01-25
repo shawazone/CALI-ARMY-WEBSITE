@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import { useAthletesContext } from '../../hooks/useAthletesContext';
 
 const AthleteManagmentCard = ({ athlete, onDelete, onUpdate }) => {
+
   const [isHovered, setIsHovered] = useState(false);
+
+  const { dispatch } = useAthletesContext();
 
   const firstPic = athlete.images && athlete.images.length > 0 ? athlete.images[0] : null;
   const secondPic = athlete.images && athlete.images.length > 1 ? athlete.images[1] : null;
@@ -13,10 +19,13 @@ const AthleteManagmentCard = ({ athlete, onDelete, onUpdate }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-    });
+     
+    })
+    const json = await response.json()
     if (response.ok) {
-        
+        dispatch({ type: 'DELETE_ATHLETE', payload: json });
         console.log('Athlete deleted successfully!');
+        toast.success('Athlete deleted successfully!');
         }
     }
 

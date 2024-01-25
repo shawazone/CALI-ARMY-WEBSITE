@@ -1,6 +1,12 @@
 // File: UploadForm.js
 import React, { useState } from "react";
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { useNavigate } from 'react-router-dom';
+
+
 const AthleteForm = () => {
   const [name, setName] = useState("");
   const [specialty, setSpecialty] = useState("");
@@ -9,6 +15,8 @@ const AthleteForm = () => {
   const [firstImage, setFirstImage] = useState(null);
   const [secondImage, setSecondImage] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
+
+  const navigate = useNavigate();
 
   const cloudinaryUrl = "https://api.cloudinary.com/v1_1/dvgnpeias/upload";
   const cloudinaryPreset = "CaliArmy";
@@ -50,22 +58,27 @@ const AthleteForm = () => {
 
       if (postResponse.ok) {
         console.log("Athlete added successfully!");
-        // setName('');
-        // setSpecialty('');
-        // setDescription('');
-        // setInsta('');
-        // setFirstImage(null);
-        // setSecondImage(null);
-        // setFirstImageUrl(null);
-        // setSecondImageUrl(null);
-        // setEmptyFields([])
+        toast.success('Athlete added successfully!');
+        setName('');
+        setSpecialty('');
+        setDescription('');
+        setInsta('');
+        setFirstImage(null);
+        setSecondImage(null);
+        setFirstImageUrl(null);
+        setSecondImageUrl(null);
+        setEmptyFields([])
+        navigate('/admin/athletesManegement');
+        
       } else {
         setEmptyFields(json.emptyFields);
         console.error("Error adding athlete:", postResponse.statusText);
         console.log("the empty field aree", emptyFields);
+        toast.error('Error adding athlete!');
       }
     } catch (error) {
       console.error("Error uploading images:", error.message);
+      toast.warning('Error uploading images!');
     }
   };
 
@@ -90,136 +103,107 @@ const AthleteForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-full bg-black text-white">
-      <h1 className="text-3xl mb-6">Athlete Upload Form</h1>
-      <div className="mb-4 w-full max-w-md">
-        <label
-          htmlFor="name"
-          className="block text-sm font-medium text-white mb-2"
-        >
-          Name:
-        </label>
-        <input
-          type="text"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="bg-red-500 text-white p-3 rounded w-full"
-        />
-        {emptyFields.includes("name") && (
-          <p className="text-red-500 text-sm mt-1">Name is required.</p>
-        )}
-      </div>
-      <div className="mb-4 w-full max-w-md">
-        <label
-          htmlFor="specialty"
-          className="block text-sm font-medium text-white mb-2"
-        >
-          Specialty:
-        </label>
-        <input
-          type="text"
-          id="specialty"
-          value={specialty}
-          onChange={(e) => setSpecialty(e.target.value)}
-          className="bg-red-500 text-white p-3 rounded w-full"
-        />
-        {emptyFields.includes("specialty") && (
-          <p className="text-red-500 text-sm mt-1">specialty is required.</p>
-        )}
-      </div>
-      <div className="mb-4 w-full max-w-md">
-        <label
-          htmlFor="description"
-          className="block text-sm font-medium text-white mb-2"
-        >
-          Description:
-        </label>
-        <textarea
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          rows="3"
-          className="bg-red-500 text-white p-3 rounded w-full"
-        ></textarea>
-        {emptyFields.includes('description') && (
-        <p className="text-red-500 text-sm mt-1">Description is required.</p>
-        )}
+    <div className="flex flex-col items-center justify-center h-full bg-black text-white p-4">
 
-      </div>
-      <div className="mb-4 w-full max-w-md">
-        <label
-          htmlFor="insta"
-          className="block text-sm font-medium text-white mb-2"
-        >
-          Instagram:
-        </label>
-        <input
-          type="text"
-          id="insta"
-          value={insta}
-          onChange={(e) => setInsta(e.target.value)}
-          className="bg-red-500 text-white p-3 rounded w-full"
-        />
-        {emptyFields.includes('insta') && (
-        <p className="text-red-500 text-sm mt-1">insta is required.</p>
-        )}
-      </div>
-      <div className="mb-4 w-full max-w-md">
-        <label
-          htmlFor="firstImage"
-          className="block text-sm font-medium text-white mb-2"
-        >
-          First Image:
-        </label>
-        <input
-          type="file"
-          id="firstImage"
-          accept="image/*"
-          onChange={(e) =>
-            handleImageChange(e, setFirstImage, setFirstImageUrl)
-          }
-          className="bg-red-500 text-white p-3 rounded w-full"
-        />
-        {firstImageUrl && (
-          <img
-            src={firstImageUrl}
-            alt="First Image"
-            className="mt-4 w-full h-full object-cover"
-          />
-        )}
-      </div>
-      <div className="mb-4 w-full max-w-md">
-        <label
-          htmlFor="secondImage"
-          className="block text-sm font-medium text-white mb-2"
-        >
-          Second Image:
-        </label>
-        <input
-          type="file"
-          id="secondImage"
-          accept="image/*"
-          onChange={(e) =>
-            handleImageChange(e, setSecondImage, setSecondImageUrl)
-          }
-          className="bg-red-500 text-white p-3 rounded w-full"
-        />
-        {secondImageUrl && (
-          <img
-            src={secondImageUrl}
-            alt="Second Image"
-            className="mt-4 w-full h-full object-cover"
-          />
-        )}
-      </div>
-      <button
-        onClick={handleUpload}
-        className="bg-red-500 text-white p-3 rounded"
-      >
-        Add Athlete
-      </button>
+    <h1 className="text-3xl mb-6">Athlete Upload Form</h1>
+  
+    <div className="mb-4 w-full max-w-md">
+      <label htmlFor="name" className="block text-sm font-medium text-white mb-2">Name:</label>
+      <input
+        type="text"
+        id="name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        className="bg-red-500 text-white p-3 rounded w-full"
+      />
+      {emptyFields.includes("name") && (
+        <p className="text-red-500 text-sm mt-1">Name is required.</p>
+      )}
     </div>
+  
+    <div className="mb-4 w-full max-w-md">
+      <label htmlFor="specialty" className="block text-sm font-medium text-white mb-2">Specialty:</label>
+      <input
+        type="text"
+        id="specialty"
+        value={specialty}
+        onChange={(e) => setSpecialty(e.target.value)}
+        className="bg-red-500 text-white p-3 rounded w-full"
+      />
+      {emptyFields.includes("specialty") && (
+        <p className="text-red-500 text-sm mt-1">Specialty is required.</p>
+      )}
+    </div>
+  
+    <div className="mb-4 w-full max-w-md">
+      <label htmlFor="description" className="block text-sm font-medium text-white mb-2">Description:</label>
+      <textarea
+        id="description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        rows="3"
+        className="bg-red-500 text-white p-3 rounded w-full"
+      ></textarea>
+      {emptyFields.includes('description') && (
+        <p className="text-red-500 text-sm mt-1">Description is required.</p>
+      )}
+    </div>
+  
+    <div className="mb-4 w-full max-w-md">
+      <label htmlFor="insta" className="block text-sm font-medium text-white mb-2">Instagram:</label>
+      <input
+        type="text"
+        id="insta"
+        value={insta}
+        onChange={(e) => setInsta(e.target.value)}
+        className="bg-red-500 text-white p-3 rounded w-full"
+      />
+      {emptyFields.includes('insta') && (
+        <p className="text-red-500 text-sm mt-1">Instagram is required.</p>
+      )}
+    </div>
+  
+    <div className="mb-4 w-full max-w-md">
+      <label htmlFor="firstImage" className="block text-sm font-medium text-white mb-2">First Image:</label>
+      <input
+        type="file"
+        id="firstImage"
+        accept="image/*"
+        onChange={(e) => handleImageChange(e, setFirstImage, setFirstImageUrl)}
+        className="bg-red-500 text-white p-3 rounded w-full"
+      />
+      {firstImageUrl && (
+        <img
+          src={firstImageUrl}
+          alt="First Image"
+          className="mt-4 w-full h-full object-cover"
+        />
+      )}
+    </div>
+  
+    <div className="mb-4 w-full max-w-md">
+      <label htmlFor="secondImage" className="block text-sm font-medium text-white mb-2">Second Image:</label>
+      <input
+        type="file"
+        id="secondImage"
+        accept="image/*"
+        onChange={(e) => handleImageChange(e, setSecondImage, setSecondImageUrl)}
+        className="bg-red-500 text-white p-3 rounded w-full"
+      />
+      {secondImageUrl && (
+        <img
+          src={secondImageUrl}
+          alt="Second Image"
+          className="mt-4 w-full h-full object-cover"
+        />
+      )}
+    </div>
+  
+    <button onClick={handleUpload} className="bg-red-500 text-white p-3 rounded">
+      Add Athlete
+    </button>
+  </div>
+
   );
 };
 

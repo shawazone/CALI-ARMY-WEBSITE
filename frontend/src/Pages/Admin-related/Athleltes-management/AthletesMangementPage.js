@@ -3,22 +3,31 @@
 import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 
+import { useAthletesContext } from '../../../hooks/useAthletesContext';
+
 import { Link } from 'react-router-dom';
 import AthleteManagmentCard from '../../../Components/Cards/AthleteMangementCard';
 
 const AthletePage = () => {
-  const [athletes, setAthletes] = useState([]);
+  // const [athletes, setAthletes] = useState([]);
+  const {athletes, dispatch}= useAthletesContext() 
 
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch('http://localhost:4000/api/athletes/')
       const json = await response.json()
+      
      
       if (response.ok) {
-         console.log(json)
-        setAthletes(json)
+        //  console.log(json)
+        //  setAthletes(json)
+        dispatch({type:'SET_ATHLETES', payload:json})
+      
         // dispatch({type:'SET_WORKOUTS', payload:json})
-      } }
+      }else{
+        console.log("error")
+      }
+     }
 
     fetchWorkouts()
   },[])
@@ -34,13 +43,20 @@ const AthletePage = () => {
       </Link>
     </div>
     <div className="flex flex-wrap justify-center">
-      {athletes.length === 0 ? (
+      {/* {athletes.length === 0 ? (
         <p className="text-xl font-bold">There are no athletes.</p>
       ) : (
         athletes.map((athlete) => (
           <AthleteManagmentCard key={athlete._id} athlete={athlete} />
         ))
-      )}
+      )} */}
+       {athletes && Array.isArray(athletes) && athletes.length > 0 ? (
+          athletes.map((athlete) => (
+            <AthleteManagmentCard key={athlete.id} athlete={athlete} />
+          ))
+        ) : (
+          <p>No athletes available</p>
+        )}
     </div>
   </>
 
