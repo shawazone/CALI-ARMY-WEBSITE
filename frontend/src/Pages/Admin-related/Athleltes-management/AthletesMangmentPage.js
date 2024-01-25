@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 
 import { Link } from 'react-router-dom';
-import AthleteManagmentCard from '../../Components/Cards/AthleteMangmentCard';
+import AthleteManagmentCard from '../../../Components/Cards/AthleteMangmentCard';
 
 const AthletePage = () => {
   const [athletes, setAthletes] = useState([]);

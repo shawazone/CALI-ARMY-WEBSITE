@@ -21,9 +21,9 @@ import Footer from "./Components/Footer";
 
 import AdminPage from "./Pages/Admin-related/AdminPage";
 
-import AthletesMangmentPage from "./Pages/Admin-related/AthletesMangmentPage";
+import AthletesMangmentPage from "./Pages/Admin-related/Athleltes-management/AthletesMangmentPage";
 import AthleteForm from "./Pages/AthleteForm";
-import AthleteUpdateForm from "./Pages/Admin-related/AthleteUpdateForm";
+import AthleteUpdateForm from "./Pages/Admin-related/Athleltes-management/AthleteUpdateForm";
 
 function App() {
   return (
