@@ -3,9 +3,15 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
+const cloudinary = require('cloudinary').v2;
+
+
+
 const athleteRouter = require('./routes/athleteRoutes');
 const productRouter = require('./routes/productRoutes');
 const eventRouter = require('./routes/eventRoutes');
+const uploadRouter = require('./routes/uploadRoutes');
+
 
 const cors = require('cors');
 const app = express();
@@ -38,7 +44,7 @@ app.get('/', (req, res) => {
 app.use('/api',  athleteRouter);
 app.use('/api',  productRouter);
 app.use('/api',  eventRouter);
-
+app.use('/api', uploadRouter);
 
 
 // connect to mongodb

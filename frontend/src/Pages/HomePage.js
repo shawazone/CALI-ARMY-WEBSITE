@@ -48,7 +48,7 @@ const HomePage = () => {
     <>
     <div className="relative">
     <img
-      src="homePics/group-pic.jpeg"  
+      src="homePics/Bars2.png"  
       alt="Description of the "
       className="w-full h-1/5 object-cover"
     />
@@ -56,14 +56,14 @@ const HomePage = () => {
     {/* <div className="absolute bottom-2/4 right-2/4  text-white text-shadow-black p-4 bg-black ">
       <h2 className="text-2xl font-bold mb-2">Get to know us in person</h2>
     </div> */}
- <div className="absolute top-3/4 right-3/4 text-white text-shadow-black ">
+ <div className="absolute top-3/4 right-1/4 text-white text-shadow-black ">
   <button className="bg-red-500 hover:bg-white text-white  hover:text-red-500 px-5 lg-5  rounded sm:px-4 sm:py-2 md:px-15 md:py-4 lg:px-20 lg:py-5">
     Enroll
   </button>
 </div>
   </div>
 <img
-  src="homePics/baki-planche.jpg" 
+  src="homePics/baki-planche2.png" 
   alt="Description of the "
   className="w-full h-1/5 my-3"
   
@@ -92,6 +92,22 @@ ALL ATHLETES
 </button>
 
 </div>
+<div className="relative">
+    <img
+      src={process.env.PUBLIC_URL + '/homePics/SteelHandStand.png'} 
+      alt="Description of the "
+      className="w-full h-1/5 object-cover"
+    />
+  
+    {/* <div className="absolute bottom-2/4 right-2/4  text-white text-shadow-black p-4 bg-black ">
+      <h2 className="text-2xl font-bold mb-2">Get to know us in person</h2>
+    </div> */}
+ <div className="absolute top-3/4 right-3/4 text-white text-shadow-black ">
+  <button className="bg-red-500 hover:bg-white text-white  hover:text-red-500 px-5 lg-5  rounded sm:px-4 sm:py-2 md:px-15 md:py-4 lg:px-20 lg:py-5">
+    Enroll
+  </button>
+</div>
+  </div>
 <div className='flex  flex-col justify-center  items-center mb-3  border-t-2 border-zinc-600'>
       <h1 className="text-4xl font-bold m-4 text-center">Upcoming Events</h1>
 
@@ -105,7 +121,27 @@ ALL ATHLETES
         <p className="text-xl font-bold">There are no upcoming events.</p>
       )}
  </div>
+ 
 
+</div>
+
+
+
+<div className="relative">
+    <img
+      src={process.env.PUBLIC_URL + '/homePics/Rings2.2.png'} 
+      alt="Description of the "
+      className="w-full h-1/5 object-cover"
+    />
+  
+    {/* <div className="absolute bottom-2/4 right-2/4  text-white text-shadow-black p-4 bg-black ">
+      <h2 className="text-2xl font-bold mb-2">Get to know us in person</h2>
+    </div> */}
+ <div className="absolute top-3/4 right-3/4 text-white text-shadow-black ">
+  <button className="bg-red-500 hover:bg-white text-white  hover:text-red-500 px-5 lg-5  rounded sm:px-4 sm:py-2 md:px-15 md:py-4 lg:px-20 lg:py-5">
+    Enroll
+  </button>
+</div>
 </div>
 
 

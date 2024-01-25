@@ -19,6 +19,8 @@ import AboutUsPage from "./Pages/AboutUsPage";
 
 import Footer from "./Components/Footer";
 
+import AthleteForm from "./Pages/AthleteForm";
+
 function App() {
   return (
     <div className="App " >
@@ -39,6 +41,8 @@ function App() {
             <Route path="/programs" element={<ProgramsPage />} />
             
             <Route path="/aboutus" element={<AboutUsPage  />} />
+
+            <Route path="/athletes/new" element={<AthleteForm />} />
           </Routes>
         </div>
 
