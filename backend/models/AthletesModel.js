@@ -28,7 +28,7 @@ const athleteSchema = new mongoose.Schema({
 
     images: [{
       type: String,
-      required: true,
+      // required: true,
     }],
   },{timestamps: true});//timestamps will automatically create a createdAt and updatedAt field for us
 

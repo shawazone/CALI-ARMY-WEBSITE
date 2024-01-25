@@ -19,7 +19,11 @@ import AboutUsPage from "./Pages/AboutUsPage";
 
 import Footer from "./Components/Footer";
 
+import AdminPage from "./Pages/Admin-related/AdminPage";
+
+import AthletesMangmentPage from "./Pages/Admin-related/AthletesMangmentPage";
 import AthleteForm from "./Pages/AthleteForm";
+import AthleteUpdateForm from "./Pages/Admin-related/AthleteUpdateForm";
 
 function App() {
   return (
@@ -42,7 +46,10 @@ function App() {
             
             <Route path="/aboutus" element={<AboutUsPage  />} />
 
-            <Route path="/athletes/new" element={<AthleteForm />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin/athletesManagment" element={<AthletesMangmentPage/>} />
+            <Route path="/admin/athletesManagment/newAthlete" element={<AthleteForm/>} />
+            <Route path="/admin/athletesManagment/:id" element={<AthleteUpdateForm/>} />
           </Routes>
         </div>
 
