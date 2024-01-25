@@ -51,29 +51,29 @@ const createAthlete = async (req, res) => {
   // const athlete = new Athlete(req.body);
   const {name, specialty, description,insta,images} = req.body
 
-  let emtyFields = []
+  let emptyFields = []
   
   if (!name) {
-      emtyFields.push('name')
+      emptyFields.push('name')
   
   }
   if (!specialty) {
-      emtyFields.push('specialty')
+      emptyFields.push('specialty')
   
   }
   if (!description) {
-      emtyFields.push('description')
+      emptyFields.push('description')
   
   }
   if (!insta) {
-    emtyFields.push('insta')
+    emptyFields.push('insta')
   
   }
   if (!images || images.length === 0) {
     emptyFields.push('images');
   }
-  if (emtyFields.length > 0) {
-     return res.status(400).json({error: 'please fill in the following fields', emtyFields})
+  if (emptyFields.length > 0) {
+     return res.status(400).json({error: 'please fill in the following fields', emptyFields})
   }
 
 

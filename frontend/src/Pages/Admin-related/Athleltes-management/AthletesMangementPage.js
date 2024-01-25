@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 
 import { Link } from 'react-router-dom';
-import AthleteManagmentCard from '../../../Components/Cards/AthleteMangmentCard';
+import AthleteManagmentCard from '../../../Components/Cards/AthleteMangementCard';
 
 const AthletePage = () => {
   const [athletes, setAthletes] = useState([]);
@@ -27,7 +27,7 @@ const AthletePage = () => {
   return (
     <>
     <div className='flex justify-center items-start mt-4 mb-14 w-full lg:w-2/3 xl:w-1/2 mx-auto'>
-      <Link to="/admin/athletesManagment/newAthlete">
+      <Link to="/admin/athletesManegement/newAthlete">
         <button className="bg-red-500 text-white p-2 rounded px-8 md:px-12 lg:px-16 xl:px-20 hover:bg-black">
           Add a new athlete
         </button>

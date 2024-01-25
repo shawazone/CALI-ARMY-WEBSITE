@@ -32,7 +32,7 @@ const AthleteManagmentCard = ({ athlete, onDelete, onUpdate }) => {
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-xl font-bold">{athlete.name}</h2>
         <div className="flex space-x-2">
-        <Link to={`/admin/athletesManagment/${athlete._id}`}>
+        <Link to={`/admin/athletesManegement/${athlete._id}`}>
           <button className="bg-blue-500 text-white p-2 rounded">
            Update
           </button>

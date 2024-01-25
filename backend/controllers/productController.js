@@ -44,29 +44,29 @@ const getProdictById = async (req, res) => {
 const createProduct = async (req, res) => {
     const {name, description,price,quantity,  image} = req.body
 
-    let emtyFieldss = []
+    let emptyFields = []
 
     if(!name){
-        emtyFieldss.push('name')
+        emptyFields.push('name')
     }
 
     if(!description){
-        emtyFieldss.push('description')
+        emptyFields.push('description')
     }
 
     if(!price){
-        emtyFieldss.push('price')
+        emptyFields.push('price')
     }
 
     if(!quantity){
-        emtyFieldss.push('quantity')
+        emptyFields.push('quantity')
     }
 
     if(!image){
-        emtyFieldss.push('image')
+        emptyFields.push('image')
     }
 
-    if (emtyFieldss.length > 0) {
+    if (emptyFields.length > 0) {
         return res.status(400).json({error: 'please fill in the following fields', emtyFields})
      }
 

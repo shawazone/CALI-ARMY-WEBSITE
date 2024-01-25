@@ -46,6 +46,7 @@ const HomePage = () => {
 
   return (
     <>
+    
     <div className="relative">
     <img
       src="homePics/Bars2.png"  
@@ -56,10 +57,11 @@ const HomePage = () => {
     {/* <div className="absolute bottom-2/4 right-2/4  text-white text-shadow-black p-4 bg-black ">
       <h2 className="text-2xl font-bold mb-2">Get to know us in person</h2>
     </div> */}
- <div className="absolute top-3/4 right-1/4 text-white text-shadow-black ">
-  <button className="bg-red-500 hover:bg-white text-white  hover:text-red-500 px-5 lg-5  rounded sm:px-4 sm:py-2 md:px-15 md:py-4 lg:px-20 lg:py-5">
-    Enroll
+ <div className="absolute top-3/4 right-4 text-white text-shadow-black ">
+ <Link to="/aboutus" className="bg-red-500 hover:bg-white text-white  hover:text-red-500 px-3 lg-5  rounded sm:px-2 sm:py-2  sm:text-sm md:text-sm md:px-10 md:py-4 lg:px-20 lg:py-5" > <button >
+    More About Us
   </button>
+  </Link>
 </div>
   </div>
 <img
@@ -102,9 +104,9 @@ ALL ATHLETES
     {/* <div className="absolute bottom-2/4 right-2/4  text-white text-shadow-black p-4 bg-black ">
       <h2 className="text-2xl font-bold mb-2">Get to know us in person</h2>
     </div> */}
- <div className="absolute top-3/4 right-3/4 text-white text-shadow-black ">
+ <div className="absolute top-3/4 right-4   text-white text-shadow-black ">
   <button className="bg-red-500 hover:bg-white text-white  hover:text-red-500 px-5 lg-5  rounded sm:px-4 sm:py-2 md:px-15 md:py-4 lg:px-20 lg:py-5">
-    Enroll
+    Check Blog
   </button>
 </div>
   </div>
@@ -137,9 +139,9 @@ ALL ATHLETES
     {/* <div className="absolute bottom-2/4 right-2/4  text-white text-shadow-black p-4 bg-black ">
       <h2 className="text-2xl font-bold mb-2">Get to know us in person</h2>
     </div> */}
- <div className="absolute top-3/4 right-3/4 text-white text-shadow-black ">
-  <button className="bg-red-500 hover:bg-white text-white  hover:text-red-500 px-5 lg-5  rounded sm:px-4 sm:py-2 md:px-15 md:py-4 lg:px-20 lg:py-5">
-    Enroll
+ <div className="absolute top-3/4 right-1/4 text-white text-shadow-black ">
+  <button className="bg-red-500 hover:bg-white text-white  hover:text-red-500 px-5 lg-5  rounded sm:px-2 sm:py-1   md:px-15 md:py-4 lg:px-20 lg:py-5">
+  Check Blog
   </button>
 </div>
 </div>

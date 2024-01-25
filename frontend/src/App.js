@@ -21,10 +21,13 @@ import Footer from "./Components/Footer";
 
 import AdminPage from "./Pages/Admin-related/AdminPage";
 
-import AthletesMangmentPage from "./Pages/Admin-related/Athleltes-management/AthletesMangmentPage";
-import AthleteForm from "./Pages/AthleteForm";
+import AthletesMangementPage from "./Pages/Admin-related/Athleltes-management/AthletesMangementPage";
+import AthleteForm from "./Pages/Admin-related/Athleltes-management/AthleteForm";
 import AthleteUpdateForm from "./Pages/Admin-related/Athleltes-management/AthleteUpdateForm";
 
+import EventsManegementPage from "./Pages/Admin-related/Events-managemet/EventsManegementPage";
+import EventForm from "./Pages/Admin-related/Events-managemet/EventForm";
+import EventUpdateForm from "./Pages/Admin-related/Events-managemet/EventUpdateForm";
 function App() {
   return (
     <div className="App " >
@@ -47,9 +50,14 @@ function App() {
             <Route path="/aboutus" element={<AboutUsPage  />} />
 
             <Route path="/admin" element={<AdminPage />} />
-            <Route path="/admin/athletesManagment" element={<AthletesMangmentPage/>} />
-            <Route path="/admin/athletesManagment/newAthlete" element={<AthleteForm/>} />
-            <Route path="/admin/athletesManagment/:id" element={<AthleteUpdateForm/>} />
+
+            <Route path="/admin/athletesManegement" element={<AthletesMangementPage/>} />
+            <Route path="/admin/athletesManegement/newAthlete" element={<AthleteForm/>} />
+            <Route path="/admin/athletesManegement/:id" element={<AthleteUpdateForm/>} />
+
+            <Route path="/admin/eventsManegement" element={<EventsManegementPage/>} />
+            <Route path="/admin/eventManegement/newEvent" element={<EventForm/>} />
+            <Route path="/admin/eventManegement/:id" element={<EventUpdateForm/>} />
           </Routes>
         </div>
 
