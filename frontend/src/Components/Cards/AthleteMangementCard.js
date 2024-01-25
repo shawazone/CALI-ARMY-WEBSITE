@@ -25,7 +25,7 @@ const AthleteManagmentCard = ({ athlete, onDelete, onUpdate }) => {
     if (response.ok) {
         dispatch({ type: 'DELETE_ATHLETE', payload: json });
         console.log('Athlete deleted successfully!');
-        toast.success('Athlete deleted successfully!');
+        toast.warning('Athlete deleted successfully!');
         }
     }
 
