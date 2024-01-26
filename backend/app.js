@@ -10,7 +10,8 @@ const cloudinary = require('cloudinary').v2;
 const athleteRouter = require('./routes/athleteRoutes');
 const productRouter = require('./routes/productRoutes');
 const eventRouter = require('./routes/eventRoutes');
-const uploadRouter = require('./routes/uploadRoutes');
+
+const uploadRouter = require('./routes/uploadRoutes');//upload route for cloudinary 
 
 
 const cors = require('cors');
@@ -36,7 +37,7 @@ app.use((req, res, next) => {
 
 
 app.get('/', (req, res) => {
-    res.send('Wassup, fam! Express is running we are making the army website aight gang ??.');
+    res.send('Wassup, fam! Express is running we are making the army website aight  ??.');
 });
 
 

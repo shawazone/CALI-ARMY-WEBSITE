@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import AthleteCard from '../Components/Cards/AthleteCard';
+import AthleteCard from '../Components/Cards/Athletes-related/AthleteCard';
 const HomePage = () => {
 
     const [athletes, setAthletes] = useState([]);

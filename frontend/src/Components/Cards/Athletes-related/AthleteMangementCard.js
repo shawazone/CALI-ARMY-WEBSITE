@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { useAthletesContext } from '../../hooks/useAthletesContext';
+import { useAthletesContext } from '../../../hooks/useAthletesContext';
 
 const AthleteManagmentCard = ({ athlete, onDelete, onUpdate }) => {
 

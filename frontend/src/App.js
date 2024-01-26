@@ -58,8 +58,8 @@ function App() {
             <Route path="/admin/athletesManegement/:id" element={<AthleteUpdateForm/>} />
 
             <Route path="/admin/eventsManegement" element={<EventsManegementPage/>} />
-            <Route path="/admin/eventManegement/newEvent" element={<EventForm/>} />
-            <Route path="/admin/eventManegement/:id" element={<EventUpdateForm/>} />
+            <Route path="/admin/eventsManegement/newEvent" element={<EventForm/>} />
+            <Route path="/admin/eventsManegement/:id" element={<EventUpdateForm/>} />
           </Routes>
         </div>
 

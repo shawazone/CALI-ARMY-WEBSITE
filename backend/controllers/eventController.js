@@ -46,38 +46,38 @@ const createEvent = async (req, res) => {
   // const event = new Event(req.body);
   const {eventName, eventDate, eventTime, eventLocation, eventDescription, eventImages} = req.body
 
-  let emtyFields = []
+  let emptyFields = []
   
   if (!eventName) {
-      emtyFields.push('eventName')
+      emptyFields.push('eventName')
   
   }
   if (!eventDate) {
-      emtyFields.push('eventDate')
+      emptyFields.push('eventDate')
   
   }
   if (!eventTime) {
-      emtyFields.push('eventTime')
+      emptyFields.push('eventTime')
   
   }
   if (!eventLocation) {
-      emtyFields.push('eventLocation')
+      emptyFields.push('eventLocation')
   
   }
   if (!eventDescription) {
-      emtyFields.push('eventDescription')
+      emptyFields.push('eventDescription')
   
   }
-  if (!eventImages) {
-      emtyFields.push('eventImages')
+  if (!eventImages || eventImages.length === 0)  {
+      emptyFields.push('eventImages')
   
   }
-  if (emtyFields.length > 0) {
-      return res.status(400).json({error: `The following fields are missing: ${emtyFields.join(', ')}`})
+  if (emptyFields.length > 0) {
+      return res.status(400).json({error: 'The following fields are missing:' ,emptyFields})
   }
 
   try {
-    const event = await Event.create(req.body);
+    const event = await Event.create({eventName, eventDate, eventTime, eventLocation, eventDescription, eventImages});
     res.status(201).json(event);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -89,41 +89,41 @@ const updateEventById = async (req, res) => {
   const {id} = req.params
   const {eventName, eventDate, eventTime, eventLocation, eventDescription, eventImages} = req.body
 
-  let emtyFields = []
+  let emptyFields = []
   
   if (!eventName) {
-      emtyFields.push('eventName')
+      emptyFields.push('eventName')
   
   }
   if (!eventDate) {
-      emtyFields.push('eventDate')
+      emptyFields.push('eventDate')
   
   }
   if (!eventTime) {
-      emtyFields.push('eventTime')
+      emptyFields.push('eventTime')
   
   }
   if (!eventLocation) {
-      emtyFields.push('eventLocation')
+      emptyFields.push('eventLocation')
   
   }
   if (!eventDescription) {
-      emtyFields.push('eventDescription')
+      emptyFields.push('eventDescription')
   
   }
-  if (!eventImages) {
-      emtyFields.push('eventImages')
-  
-  }
-  if (emtyFields.length > 0) {
-      return res.status(400).json({error: `The following fields are missing: ${emtyFields.join(', ')}`})
+  if (!eventImages || eventImages.length === 0)  {
+    emptyFields.push('eventImages')
+
+}
+  if (emptyFields.length > 0) {
+      return res.status(400).json({error: `The following fields are missing: ${emptyFields.join(', ')}`})
   }
 
   try {
     if (!mongoose.Types.ObjectId.isValid(id)) {
       res.status(400).json({error: 'Invalid ID'})
     }
-    const event = await Event.findByIdAndUpdate(id, req.body, {new: true});
+    const event = await Event.findByIdAndUpdate(id, {eventName, eventDate, eventTime, eventLocation, eventDescription, eventImages}, {new: true});
     if (!event) {
       return res.status(400).json({ message: 'Event not found' });
     }

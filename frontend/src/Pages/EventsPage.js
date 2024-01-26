@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import EventCard from '../Components/Cards/EventCard';
+import EventCard from '../Components/Cards/Events-related/EventCard';
 
 
-export default function ProductsPage() {
+export default function EventsPage() {
   
     const [events, setEvents] = useState([]);
 

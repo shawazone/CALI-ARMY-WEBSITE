@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { useAthletesContext } from '../../../hooks/useAthletesContext';
 
 import { Link } from 'react-router-dom';
-import AthleteManagmentCard from '../../../Components/Cards/AthleteMangementCard';
+import AthleteManagmentCard from '../../../Components/Cards/Athletes-related/AthleteMangementCard';
 
 const AthletePage = () => {
   // const [athletes, setAthletes] = useState([]);

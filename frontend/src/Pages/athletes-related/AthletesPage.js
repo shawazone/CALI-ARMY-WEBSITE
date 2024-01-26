@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
-import AthleteCard from '../../Components/Cards/AthleteCard';
+import AthleteCard from '../../Components/Cards/Athletes-related/AthleteCard';
 import { Link } from 'react-router-dom';
 
 const AthletePage = () => {
