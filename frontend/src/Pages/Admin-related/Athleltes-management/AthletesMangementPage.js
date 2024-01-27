@@ -13,7 +13,7 @@ const AthletePage = () => {
   const {athletes, dispatch}= useAthletesContext() 
 
   useEffect(() => {
-    const fetchWorkouts = async () => {
+    const fetchAthletes = async () => {
       const response = await fetch('http://localhost:4000/api/athletes/')
       const json = await response.json()
       
@@ -29,7 +29,7 @@ const AthletePage = () => {
       }
      }
 
-    fetchWorkouts()
+    fetchAthletes()
   },[])
 
   console.log(athletes);
