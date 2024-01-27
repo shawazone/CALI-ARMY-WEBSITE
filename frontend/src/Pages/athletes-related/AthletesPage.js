@@ -30,7 +30,7 @@ const AthletePage = () => {
     ) : (
       athletes.map((athlete) => (
         // <Link to={`/athletes/${athlete._id}`} key={athlete._id} state={{ athlete }}>
-          <AthleteCard athlete={athlete} />
+          <AthleteCard  key={athlete._id}  athlete={athlete} />
         // </Link>
       ))
     )}

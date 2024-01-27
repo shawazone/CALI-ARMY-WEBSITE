@@ -27,7 +27,8 @@ const EventMangementCard = ({ event }) => {
           <div className="flex justify-between items-center mb-2">
         {/* <h2 className="text-xl font-bold">{Event.name}</h2> */}
         <div className="flex space-x-2">
-        <Link to={`/admin/athletesManegement/${event._id}`}>
+        <Link to={`/admin/eventsManegement/${event._id}`}>
+        
           <button className="bg-blue-500 text-white p-2 rounded">
            Update
           </button>
