@@ -21,7 +21,7 @@ const EventForm = () => {
 
 
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const cloudinaryUrl = "https://api.cloudinary.com/v1_1/dvgnpeias/upload";
   const cloudinaryPreset = "CaliArmy";
@@ -65,7 +65,8 @@ const EventForm = () => {
       if (postResponse.ok) {
         console.log("event was added successfully!");
         toast.success('event was added successfully!');
-      
+        navigate('/admin/eventsManegement');
+
         
         
       } else {
@@ -96,6 +97,7 @@ const EventForm = () => {
     if (response.ok) {
       const cloudinaryData = await response.json();
       return cloudinaryData.secure_url;
+
     } else {
       throw new Error("Image upload failed");
     }

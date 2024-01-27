@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import EventMangementCard from '../../../Components/Cards/Events-related/EventMangementCard';
-
+import { Link } from 'react-router-dom';
 import { useEventsContext } from '../../../hooks/useEventsContext'
 
 export default function EventsManegementPage() {
@@ -23,6 +23,13 @@ export default function EventsManegementPage() {
 
   return (
     <div className="flex flex-wrap justify-center">
+          <div className='flex justify-center items-start mt-4 mb-14 w-full lg:w-2/3 xl:w-1/2 mx-auto'>
+      <Link to="/admin/eventsManegement/newEvent">
+        <button className="bg-red-500 text-white p-2 rounded px-8 md:px-12 lg:px-16 xl:px-20 hover:bg-black">
+          Add a new event
+        </button>
+      </Link>
+    </div>
       {/* {events.length === 0 ? (
         <p className="text-xl font-bold">There are no event.</p>
       ) : (
