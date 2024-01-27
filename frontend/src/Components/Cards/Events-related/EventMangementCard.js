@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const EventMangementCard = ({ event }) => {
+import { useEventsContext } from '../../../hooks/useEventsContext';
 
+const EventMangementCard = ({ event }) => {
+  const { dispatch } = useEventsContext();
+  
     const deleteEvent= async (id) => {   
         const response = await fetch(`http://localhost:4000/api/events/${id}`, {
           method: 'DELETE',
@@ -14,7 +17,7 @@ const EventMangementCard = ({ event }) => {
         })
         const json = await response.json()
         if (response.ok) {
-            // dispatch({ type: 'DELETE_ATHLETE', payload: json });
+            dispatch({ type: 'DELETE_EVENT', payload: json });
 
             console.log('Event deleted successfully!');
             toast.warning('event  deleted successfully!');

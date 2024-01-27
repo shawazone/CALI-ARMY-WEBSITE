@@ -5,11 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import {AthletesContextProvider} from './context/AthletesContext'
+import { EventsContextProvider } from './context/EventsContext';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <AthletesContextProvider>
+    <EventsContextProvider>
+
     <App />
+    </EventsContextProvider>
     </AthletesContextProvider>
   </React.StrictMode>
 );

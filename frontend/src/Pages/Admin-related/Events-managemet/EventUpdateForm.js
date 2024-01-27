@@ -12,7 +12,7 @@ const EventUpdateForm = () => {
   const [eventDate, setEventDate] = useState("");
   const [eventTime, setEventTime] = useState("");
   const [eventLocation, setEventLocation] = useState("");
-  const [eventDescription, setEventDescription] = useState(null);
+  const [eventDescription, setEventDescription] = useState("");
   const [eventFirstImage, setEventFirstImage] = useState(null);
   // const [eventSecondImage, setEventSecondImage] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
@@ -37,8 +37,8 @@ const EventUpdateForm = () => {
         setEventTime(json.eventTime)
         setEventLocation(json.eventLocation)
         setEventDescription(json.eventDescription)
-        // setFirstImageUrl(json.eventImages[0])
-        // setEventFirstImage(json.eventImages[0])
+        setFirstImageUrl(json.eventImages[0])
+        setEventFirstImage(json.eventImages[0])
       }else{
         console.log("error")
       }
@@ -80,8 +80,8 @@ const EventUpdateForm = () => {
       
       };
 
-      const postResponse = await fetch("http://localhost:4000/api/events", {
-        method: "POST",
+      const postResponse = await fetch(`http://localhost:4000/api/events/${id}`, {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -92,6 +92,14 @@ const EventUpdateForm = () => {
       if (postResponse.ok) {
         console.log("event was added successfully!");
         toast.success('event was added successfully!');
+        navigate('/admin/eventsManegement');
+        setEventName("");
+        setEventDate("");
+        setEventTime("");
+        setEventLocation("");
+        setEventDescription("");
+        setEventFirstImage(null);
+
       
         
         
@@ -229,9 +237,9 @@ const EventUpdateForm = () => {
     onChange={(e) => handleImageChange(e, setEventFirstImage,setFirstImageUrl)}
     className="bg-red-500 text-white p-3 rounded w-full"
   />
-  {eventFirstImage && (
+  {firstImageUrl && (
     <img
-      src={URL.createObjectURL(eventFirstImage)}
+      src={firstImageUrl}
       alt="Event First Image"
       className="mt-4 w-full h-full object-cover"
     />
@@ -265,7 +273,7 @@ const EventUpdateForm = () => {
     </div> */}
   
     <button onClick={handleUpload} className="bg-red-500 text-white p-3 rounded">
-      Add Event
+      Update Event
     </button>
   </div>
   

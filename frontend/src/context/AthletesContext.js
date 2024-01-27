@@ -32,7 +32,7 @@ export const AthletesContextProvider = ({children}) => {  // provider is a compo
  // here the children prop is the App component
 
  const [state, dispatch] = useReducer(athletesReducer, {
-    workouts: null
+    athletes: null
  })
     return (
 
