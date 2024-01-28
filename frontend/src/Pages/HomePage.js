@@ -123,7 +123,14 @@ ALL ATHLETES
         <p className="text-xl font-bold">There are no upcoming events.</p>
       )}
  </div>
- 
+ <div className='flex justify-center mb-3'>
+<button>
+<Link to="/events" className=" flex justify-center items-center text-white bg-red-500 hover:bg-black hover:text-red-500 px-5 lg-5  rounded sm:px-4 sm:py-4 md:px-10 md:py-4 lg:px-15 lg:py-5">
+ Check All Events
+</Link>
+</button>
+
+</div>
 
 </div>
 
