@@ -18,7 +18,6 @@ const EventMangementCard = ({ event }) => {
         const json = await response.json()
         if (response.ok) {
             dispatch({ type: 'DELETE_EVENT', payload: json });
-
             console.log('Event deleted successfully!');
             toast.warning('event  deleted successfully!');
             }

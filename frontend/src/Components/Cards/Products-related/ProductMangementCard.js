@@ -3,9 +3,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useProductsContext } from '../../../hooks/useProductsContext';
 
 const ProductMangementCard = ({ product }) => {
-
+  const {dispatch}= useProductsContext()
 
     const deleteProduct= async (id) => {   
         const response = await fetch(`http://localhost:4000/api/products/${id}`, {
@@ -17,8 +18,7 @@ const ProductMangementCard = ({ product }) => {
         })
         const json = await response.json()
         if (response.ok) {
-            // dispatch({ type: 'DELETE_EVENT', payload: json });
-
+            dispatch({ type: 'DELETE_PRODUCT', payload: json });
             console.log('product deleted successfully!');
             toast.warning('product  deleted successfully!');
             }

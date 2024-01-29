@@ -6,14 +6,17 @@ import reportWebVitals from './reportWebVitals';
 
 import {AthletesContextProvider} from './context/AthletesContext'
 import { EventsContextProvider } from './context/EventsContext';
+import { ProductsContextProvider } from './context/ProductsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
   <AthletesContextProvider>
     <EventsContextProvider>
+    <ProductsContextProvider>
 
     <App />
+    </ProductsContextProvider>
     </EventsContextProvider>
     </AthletesContextProvider>
   </React.StrictMode>

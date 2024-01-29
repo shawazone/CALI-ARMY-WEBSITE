@@ -1,38 +1,32 @@
 
 
 import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 // import { useAthletesContext } from '../../../hooks/useAthletesContext';
-
 import { Link } from 'react-router-dom';
 import ProductMangementCard from '../../../Components/Cards/Products-related/ProductMangementCard';
+import { useProductsContext } from '../../../hooks/useProductsContext';
 
 
 const ProductMangementPage = () => {
   // const [athletes, setAthletes] = useState([]);
 //   const {athletes, dispatch}= useAthletesContext() 
-const [products, setProducts] = useState([]);
+// const [products, setProducts] = useState([]);
+const {products, dispatch}= useProductsContext()
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await fetch('http://localhost:4000/api/products/')
-      const json = await response.json()
-      
-     
-      if (response.ok) {
-        //  console.log(json)
-      
-        // dispatch({type:'SET_ATHLETES', payload:json})
-        setProducts(json)
-        
-      }else{
-        console.log("error")
-      }
-     }
-
-    fetchProducts()
-  },[])
+ 
+useEffect(() => {
+  // Fetch products from the API
+  axios.get('http://localhost:4000/api/products/')
+    .then(response => {
+      // setEvents(response.data);
+      dispatch({type:'SET_PRODUCT', payload:response.data})
+    })
+    .catch(error => {
+      console.error('Error fetching product:', error);
+    });
+}, []);
 
   return (
     <>
