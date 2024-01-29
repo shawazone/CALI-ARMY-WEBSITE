@@ -9,7 +9,7 @@ export default function AdminPage() {
       Manage Athletes
       </button>
     </Link>
-    <Link to="/admin/athletesManagment" className='m-12 max-w-3/6'>
+    <Link to="/admin/productsManagement" className='m-12 max-w-3/6'>
       <button className="bg-red-500  text-white p-2 rounded px-8 md:px-12 lg:px-16 xl:px-20 hover:bg-black">
       Manage Products
       </button>
@@ -19,7 +19,7 @@ export default function AdminPage() {
       Manage Events
       </button>
     </Link>
-    <Link to="/admin/athletesManagment" className='m-12 max-w-3/6'>
+    <Link to="/admin/athletesManagement" className='m-12 max-w-3/6'>
       <button className="bg-red-500 text-white p-2 rounded px-8 md:px-12 lg:px-16 xl:px-20 hover:bg-black">
       Manage Blog   
       </button>

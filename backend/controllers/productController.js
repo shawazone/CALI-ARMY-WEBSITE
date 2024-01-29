@@ -62,12 +62,12 @@ const createProduct = async (req, res) => {
         emptyFields.push('quantity')
     }
 
-    if(!image){
-        emptyFields.push('image')
-    }
+    // if(!image){
+    //     emptyFields.push('image')
+    // }
 
     if (emptyFields.length > 0) {
-        return res.status(400).json({error: 'please fill in the following fields', emtyFields})
+        return res.status(400).json({error: 'please fill in the following fields', emptyFields})
      }
 
      try{
@@ -87,6 +87,36 @@ const createProduct = async (req, res) => {
 const updateProductById = async (req, res) => {
     const {id} = req.params
     const {name,description,price,quantity,image} = req.body
+
+    
+
+    let emptyFields = []
+
+    if(!name){
+        emptyFields.push('name')
+    }
+
+    if(!description){
+        emptyFields.push('description')
+    }
+
+    if(!price){
+        emptyFields.push('price')
+    }
+
+    if(!quantity){
+        emptyFields.push('quantity')
+    }
+
+    if(!image){
+        emptyFields.push('image')
+    }
+
+    if (emptyFields.length > 0) {
+        return res.status(400).json({error: 'please fill in the following fields', emtyFields})
+     }
+
+
 
     try {
         if(!mongoose.Types.ObjectId.isValid(id)){

@@ -13,9 +13,9 @@ import SingleAthletePage from "./Pages/athletes-related/SingleAthletePage";
 import ProductsPage from "./Pages/product-related/ProductsPage";
 import SingleProductPage from "./Pages/product-related/SingleProductPage";
 
-import EventsPage from "./Pages/EventsPage";
+import EventsPage from "./Pages/Events-related/EventsPage";
 
-import ProgramsPage from "./Pages/ProgramsPage";
+import ProgramsPage from "./Pages/Programs-related/ProgramsPage";
 
 import AboutUsPage from "./Pages/AboutUsPage";
 
@@ -30,6 +30,11 @@ import AthleteUpdateForm from "./Pages/Admin-related/Athleltes-management/Athlet
 import EventsManegementPage from "./Pages/Admin-related/Events-managemet/EventsManegementPage";
 import EventForm from "./Pages/Admin-related/Events-managemet/EventForm";
 import EventUpdateForm from "./Pages/Admin-related/Events-managemet/EventUpdateForm";
+
+import ProductsMangementPage from "./Pages/Admin-related/Products-managment/ProductsManegementPage";
+import ProductForm from "./Pages/Admin-related/Products-managment/ProductForm";
+import ProductUpdateForm from "./Pages/Admin-related/Products-managment/ProductUpdateForm";
+
 function App() {
   return (
     <div className="App " >
@@ -60,6 +65,12 @@ function App() {
             <Route path="/admin/eventsManegement" element={<EventsManegementPage/>} />
             <Route path="/admin/eventsManegement/newEvent" element={<EventForm/>} />
             <Route path="/admin/eventsManegement/:id" element={<EventUpdateForm/>} />
+
+            <Route path="/admin/productsManagement" element={<ProductsMangementPage/>} />
+            <Route path="/admin/productsManagement/newProduct" element={<ProductForm/>} />  
+            <Route path="/admin/productsManagement/:id" element={<ProductUpdateForm/>} />
+
+            <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
         </div>
 

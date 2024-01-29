@@ -1,13 +1,14 @@
 // File: UploadForm.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
-const ProductForm = () => {
+const ProductUpdateForm = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
@@ -22,6 +23,36 @@ const ProductForm = () => {
   // const [emptyFields, setEmptyFields] = useState([]);
 
   const navigate = useNavigate();
+
+  const { id } = useParams(); // Use the useParams hook to get the eventId from the URL
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const response = await fetch(`http://localhost:4000/api/products/${id}`)
+      const json = await response.json()
+      
+     
+      if (response.ok) {
+         console.log(json)
+
+        // dispatch({type:'SET_ATHLETES', payload:json})
+        setName(json.name)
+        setDescription(json.description)
+        setPrice(json.price)
+        setQuantity(json.quantity)
+        setFirstImageUrl(json.image)
+        setFirstImage(json.image)
+
+      }else{
+        console.log("error")
+      }
+     }
+
+    fetchProduct()
+  },[])
+
+
+
 
   const cloudinaryUrl = "https://api.cloudinary.com/v1_1/dvgnpeias/upload";
   const cloudinaryPreset = "CaliArmy";
@@ -52,8 +83,8 @@ const ProductForm = () => {
         image: firstImageUrl,
       };
 
-      const postResponse = await fetch("http://localhost:4000/api/products", {
-        method: "POST",
+      const postResponse = await fetch(`http://localhost:4000/api/products/${id}`, {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -62,8 +93,8 @@ const ProductForm = () => {
       const json = await postResponse.json();
 
       if (postResponse.ok) {
-        console.log("Product added successfully!");
-        toast.success('Product added successfully!');
+        console.log("Product updated successfully!");
+        toast.success('Product updated successfully!');
     
         navigate('/admin/productsManagement');
         
@@ -102,7 +133,7 @@ const ProductForm = () => {
   return (
     <div className="flex flex-col items-center justify-center h-full bg-black text-white p-4">
 
-    <h1 className="text-3xl mb-6">Product Upload Form</h1>
+    <h1 className="text-3xl mb-6">Product Update Form</h1>
   
     <div className="mb-4 w-full max-w-md">
       <label htmlFor="name" className="block text-sm font-medium text-white mb-2">Name:</label>
@@ -200,11 +231,11 @@ const ProductForm = () => {
     </div> */}
   
     <button onClick={handleUpload} className="bg-red-500 text-white p-3 rounded">
-      Add Product
+      Update Product
     </button>
   </div>
 
   );
 };
 
-export default ProductForm;
+export default ProductUpdateForm;

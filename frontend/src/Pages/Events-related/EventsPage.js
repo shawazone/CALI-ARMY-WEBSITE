@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import EventCard from '../Components/Cards/Events-related/EventCard';
+import EventCard from '../../Components/Cards/Events-related/EventCard';
 
 
 export default function EventsPage() {
