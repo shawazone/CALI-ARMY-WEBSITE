@@ -1,22 +1,54 @@
 // BlogForm.js
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import {useParams} from 'react-router-dom'
 
-const BlogForm = () => {
-  const [blogTitle, setBlogTitle] = useState("");
-  const [blogContent, setBlogContent] = useState("");
-  const [blogAuthor, setBlogAuthor] = useState("");
-  const [blogPic, setBlogPic] = useState(null);
-  const [emptyFields, setEmptyFields] = useState([]);
+const BlogUpdateForm = () => {
 
-  const [blogImageUrl, setBlogImageUrl] = useState(null);
 
-  const navigate = useNavigate();
 
-  const cloudinaryUrl = "https://api.cloudinary.com/v1_1/dvgnpeias/upload";
-  const cloudinaryPreset = "CaliArmy";
+    const [blogTitle, setBlogTitle] = useState("");
+    const [blogContent, setBlogContent] = useState("");
+    const [blogAuthor, setBlogAuthor] = useState("");
+    const [blogPic, setBlogPic] = useState(null);
+    const [emptyFields, setEmptyFields] = useState([]);
+  
+    const [blogImageUrl, setBlogImageUrl] = useState(null);
+  
+    const navigate = useNavigate();
+    const { id } = useParams(); // Use the useParams hook to get the eventId from the URL
+    
+  
+
+    useEffect(() => {
+    const fetchBlogs = async () => {
+        const response = await fetch(`http://localhost:4000/api/blogs/${id}`)
+        const json = await response.json()
+        
+         
+        if (response.ok) {
+            //  console.log(json)
+    
+            // dispatch({type:'SET_ATHLETES', payload:json})
+            setBlogTitle(json.blogTitle)
+            setBlogContent(json.blogContent)
+            setBlogAuthor(json.blogAuthor)
+            setBlogImageUrl(json.blogPic)
+            setBlogPic(json.blogPic)
+        }else{
+            console.log("error")
+        }
+         }
+
+         fetchBlogs()
+        },[])
+
+
+        const cloudinaryUrl = "https://api.cloudinary.com/v1_1/dvgnpeias/upload";
+        const cloudinaryPreset = "CaliArmy";
+
 
   const handleImageChange = (event, setImage, setImageUrl) => {
     const file = event.target.files[0];
@@ -37,8 +69,8 @@ const BlogForm = () => {
         blogPic: blogImageUrl,
       };
 
-      const postResponse = await fetch("http://localhost:4000/api/blogs", {
-        method: "POST",
+      const postResponse = await fetch(`http://localhost:4000/api/blogs/${id}`, {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -84,7 +116,7 @@ const BlogForm = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-full bg-black text-white p-4">
-      <h1 className="text-3xl mb-6">Blog Upload Form</h1>
+      <h1 className="text-3xl mb-6">Blog Update Form</h1>
 
       <div className="mb-4 w-full max-w-md">
         <label htmlFor="blogTitle" className="block text-sm font-medium text-white mb-2">
@@ -145,9 +177,9 @@ const BlogForm = () => {
           onChange={(e) => handleImageChange(e, setBlogPic, setBlogImageUrl)}
           className="bg-red-500 text-white p-3 rounded w-full"
         />
-        {blogPic && (
+        {blogImageUrl && (
           <img
-            src={URL.createObjectURL(blogPic)}
+            src={blogImageUrl}
             alt="Blog Picture"
             className="mt-4 w-full h-full object-cover"
           />
@@ -155,10 +187,10 @@ const BlogForm = () => {
       </div>
 
       <button onClick={handleUpload} className="bg-red-500 text-white p-3 rounded">
-        Add Blog
+        Update Blog
       </button>
     </div>
   );
 };
 
-export default BlogForm;
+export default BlogUpdateForm;

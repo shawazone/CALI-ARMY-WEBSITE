@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 
 
 const BlogMangementCard = ({ blog }) => {
@@ -14,6 +14,7 @@ const BlogMangementCard = ({ blog }) => {
     
           if (response.ok) {
             console.log("Blog was deleted successfully!");
+            toast.success('Blog was deleted successfully!');
           } else {
             console.error("Error deleting blog:", response.statusText);
           }
@@ -21,12 +22,13 @@ const BlogMangementCard = ({ blog }) => {
           console.error("Error deleting blog:", error.message);
         }
       }
+      console.log(blog);
   return (
     <> 
       
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden mx-4 mb-4 w-full max-w-3xl">
-    <div className="flex justify-end space-x-2">
-        <Link to={`/admin/blogsManegement/${blog._id}`}>
+      <div className="bg-white shadow-lg rounded-lg overflow-hidden mx-4 mb-4 w-full max-w-3xl transform transition-transform hover:scale-105">
+    <div className="flex justify-end space-x-2 mt-4 mx-4">
+        <Link to={`/admin/blogsManagement/${blog._id}`}>
           <button className="bg-blue-500 text-white p-2 rounded">
            Update
           </button>
@@ -35,16 +37,16 @@ const BlogMangementCard = ({ blog }) => {
             Delete
           </button>
         </div>
-      {blog.BlogPic && (
+      {blog.blogPic && (
         <img
-          src={blog.BlogPic}
+          src={blog.blogPic}
           alt={blog.blogTitle}
           className="w-full h-40 object-cover"
         />
       )}
       <div className="p-4">
         <h2 className="text-xl font-bold mb-2">{blog.blogTitle}</h2>
-        <p className="text-gray-600">{blog.BlogContent}</p>
+        <p className="text-gray-600">{blog.blogContent}</p>
         <p className="text-gray-500 mt-2">Author: {blog.blogAuthor}</p>
       </div>
 

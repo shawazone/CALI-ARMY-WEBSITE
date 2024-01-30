@@ -15,6 +15,8 @@ import SingleProductPage from "./Pages/product-related/SingleProductPage";
 
 import EventsPage from "./Pages/Events-related/EventsPage";
 
+import BlogsPage from "./Pages/Blogs-related/BlogsPage";
+
 import ProgramsPage from "./Pages/Programs-related/ProgramsPage";
 
 import AboutUsPage from "./Pages/AboutUsPage";
@@ -35,9 +37,10 @@ import ProductsMangementPage from "./Pages/Admin-related/Products-managment/Prod
 import ProductForm from "./Pages/Admin-related/Products-managment/ProductForm";
 import ProductUpdateForm from "./Pages/Admin-related/Products-managment/ProductUpdateForm";
 
-import BlogsPage from "./Pages/Blogs-related/BlogsPage";
+
 import BlogManagementPage from "./Pages/Admin-related/Blog-management/BlogsMangementPage";
 import BlogForm from "./Pages/Admin-related/Blog-management/BlogForm";
+import BlogUpdateForm from "./Pages/Admin-related/Blog-management/BlogUpdateForm";
 
 function App() {
   return (
@@ -76,9 +79,9 @@ function App() {
             <Route path="/admin/productsManagement/newProduct" element={<ProductForm/>} />  
             <Route path="/admin/productsManagement/:id" element={<ProductUpdateForm/>} />
 
-            <Route path="/admin/blogManagement" element={<BlogManagementPage/>} />
-            <Route path="/admin/blogManagement/newBlog" element={<BlogForm/>} />  
-            <Route path="/admin/blogManagement/:id" element={<ProductUpdateForm/>} />
+            <Route path="/admin/blogsManagement" element={<BlogManagementPage/>} />
+            <Route path="/admin/blogsManagement/newBlog" element={<BlogForm/>} />  
+            <Route path="/admin/blogsManagement/:id" element={<BlogUpdateForm/>} />
 
 
 

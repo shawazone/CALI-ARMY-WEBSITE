@@ -1,9 +1,7 @@
 // File: UploadForm.js
 import React, { useState } from "react";
-
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import { useNavigate } from 'react-router-dom';
 
 
@@ -72,7 +70,6 @@ const EventForm = () => {
       } else {
         setEmptyFields(json.emptyFields);
         console.log("the empty field are", json.emptyFields);
-        console.error("Error adding event:", postResponse.statusText);
         console.log("the empty field aree", emptyFields);
         toast.error('Error adding event!');
       }

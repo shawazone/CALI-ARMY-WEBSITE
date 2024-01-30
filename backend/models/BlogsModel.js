@@ -7,7 +7,7 @@ const blogSchema = new mongoose.Schema({
 
     },
     
-    BlogContent: {
+    blogContent: {
         type: String,
         required: true,
     },
@@ -18,7 +18,7 @@ const blogSchema = new mongoose.Schema({
     },
 
 
-    BlogPic: {
+    blogPic: {
         type: String,
         // required: true,
     },

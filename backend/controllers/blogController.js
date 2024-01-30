@@ -38,13 +38,13 @@ const getBlogById = async (req,res) =>{
 
 // Create a new blog
 const createBlog = async (req,res) =>{
-    const {blogTitle, BlogContent,blogAuthor, BlogPic} = req.body
+    const {blogTitle, blogContent,blogAuthor, blogPic} = req.body
  let emptyFields = []
     if (!blogTitle) {
         emptyFields.push('blogTitle')
     }
-    if (!BlogContent) {
-        emptyFields.push('BlogContent')
+    if (!blogContent) {
+        emptyFields.push('blogContent')
     }
     if (!blogAuthor) {
         emptyFields.push('blogAuthor')
@@ -55,7 +55,7 @@ const createBlog = async (req,res) =>{
     }
 
     try {
-        const blog = await Blog.create({ blogTitle, BlogContent,blogAuthor, BlogPic })
+        const blog = await Blog.create({ blogTitle, blogContent,blogAuthor, blogPic })
         res.status(201).json(blog)
     } catch (error) {
         res.status(400).json({ message: error.message })
@@ -68,14 +68,14 @@ const createBlog = async (req,res) =>{
 
 const updateBlog = async (req,res) =>{
     const {id} = req.params
-    const {blogTitle, BlogContent,blogAuthor, BlogPic} = req.body
+    const {blogTitle, blogContent,blogAuthor, blogPic} = req.body
 
     let emptyFields = []
     if (!blogTitle) {
         emptyFields.push('blogTitle')
     }
-    if (!BlogContent) {
-        emptyFields.push('BlogContent')
+    if (!blogContent) {
+        emptyFields.push('blogContent')
     }
     if (!blogAuthor) {
         emptyFields.push('blogAuthor')
@@ -89,7 +89,7 @@ const updateBlog = async (req,res) =>{
         res.status(400).json({error: 'Invalid ID'})
     }
     try{
-        const updatedBlog = await Blog.findByIdAndUpdate(id, {blogTitle, BlogContent,blogAuthor, BlogPic}, {new: true});
+        const updatedBlog = await Blog.findByIdAndUpdate(id, {blogTitle, blogContent,blogAuthor, blogPic}, {new: true});
         res.json(updatedBlog)
         } catch (error) {
             res.status(400).json({ message: error.message })
