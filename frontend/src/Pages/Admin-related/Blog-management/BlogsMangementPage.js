@@ -3,12 +3,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BlogMangementCard from '../../../Components/Cards/Blogs-related/BlogMangementCard';
-// import { useBlogsContext } from '../../../hooks/useBlogsContext';
+import { useBlogsContext } from '../../../hooks/useBlogsContext';
 
 
 const BlogManagementPage = () => {
-//   const { blogs, dispatch } = useBlogsContext();
-    const [blogs, setBlogs] = useState([]);
+  const { blogs, dispatch } = useBlogsContext();
+    // const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -17,8 +17,8 @@ const BlogManagementPage = () => {
         const json = await response.json();
 
         if (response.ok) {
-        //   dispatch({ type: 'SET_BLOGS', payload: json });
-            setBlogs(json);
+          dispatch({ type: 'SET_BLOGS', payload: json });
+            // setBlogs(json);
         } else {
           console.error('Error fetching blogs:', response.statusText);
         }

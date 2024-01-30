@@ -7,18 +7,20 @@ import reportWebVitals from './reportWebVitals';
 import {AthletesContextProvider} from './context/AthletesContext'
 import { EventsContextProvider } from './context/EventsContext';
 import { ProductsContextProvider } from './context/ProductsContext';
+import { BlogsContextProvider } from './context/BlogsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <AthletesContextProvider>
-    <EventsContextProvider>
     <ProductsContextProvider>
-
+       <AthletesContextProvider>
+         <EventsContextProvider>
+            <BlogsContextProvider>
     <App />
+            </BlogsContextProvider>
+          </EventsContextProvider>
+       </AthletesContextProvider>
     </ProductsContextProvider>
-    </EventsContextProvider>
-    </AthletesContextProvider>
   </React.StrictMode>
 );
 

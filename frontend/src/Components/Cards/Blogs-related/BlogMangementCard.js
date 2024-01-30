@@ -3,9 +3,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-
+import { useBlogsContext } from '../../../hooks/useBlogsContext';
 
 const BlogMangementCard = ({ blog }) => {
+
+    const { dispatch } = useBlogsContext();
+
     const deleteBlog = async (id) => {
         try {
           const response = await fetch(`http://localhost:4000/api/blogs/${id}`, {
@@ -13,6 +16,7 @@ const BlogMangementCard = ({ blog }) => {
           });
     
           if (response.ok) {
+            dispatch({ type: "DELETE_BLOGS", payload: blog });
             console.log("Blog was deleted successfully!");
             toast.success('Blog was deleted successfully!');
           } else {
