@@ -4,11 +4,11 @@ import  {createContext,useReducer} from 'react';
 export const ProductsContext = createContext()   // create context object
 
 export const productsReducer = (state, action) => {
-    switch (action.type ){
+    switch (action.type){
       case 'SET_PRODUCT' :
-        console.log('action.payload',action.payload)
+        // console.log('action.payload',action.payload)
         return {
-            products: action.payload, // action.payload is the workouts array
+            products: action.payload, // action.payload is the items array
             
         }
         case 'CREATE_PRODUCT':
@@ -21,8 +21,10 @@ export const productsReducer = (state, action) => {
                 };
         case 'DELETE_PRODUCT':
             console.log('action.payload',action.payload)
+            // console.log('state.products',state.products)
             return {
                 products: state.products.filter((product) => product._id !== action.payload._id) 
+                
             }    
         default: 
             return state    

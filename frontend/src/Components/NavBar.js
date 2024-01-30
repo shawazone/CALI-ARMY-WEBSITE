@@ -33,6 +33,10 @@ const NavBar = () => {
           <Link to="/products" className="block text-xl text-white hover:text-red-400 p-4">
             Products
           </Link>
+
+          <Link to="/blogs" className="block text-xl text-white hover:text-red-400 p-4">
+            Blog
+          </Link>
         
           <Link to="/programs" className="block text-xl text-white hover:text-red-400 p-4">
             Programs
@@ -65,6 +69,11 @@ const NavBar = () => {
           <Link to="/events" className="block text-xl text-white hover:text-red-400 p-4">
             Events
           </Link>
+          
+          <Link to="/blogs" className="block text-xl text-white hover:text-red-400 p-4">
+            Blog
+          </Link>
+
           <Link to="/programs" className="block hover:text-red-400 p-4">
             Programs
           </Link>

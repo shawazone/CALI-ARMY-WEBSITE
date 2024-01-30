@@ -17,6 +17,7 @@ const EventMangementCard = ({ event }) => {
         })
         const json = await response.json()
         if (response.ok) {
+          console.log('json',json)
             dispatch({ type: 'DELETE_EVENT', payload: json });
             console.log('Event deleted successfully!');
             toast.warning('event  deleted successfully!');
@@ -40,6 +41,9 @@ const EventMangementCard = ({ event }) => {
           </button>
         </div>
       </div>
+
+
+      
       <h2 className="text-xl font-bold mb-2">{event.eventName}</h2>
       <p><span className="font-bold">Date:</span> {new Date(event.eventDate).toLocaleString()}</p>
       <p><span className="font-bold">Time:</span> {event.eventTime}</p>

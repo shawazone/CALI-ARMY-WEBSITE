@@ -18,7 +18,8 @@ const ProductMangementCard = ({ product }) => {
         })
         const json = await response.json()
         if (response.ok) {
-            dispatch({ type: 'DELETE_PRODUCT', payload: json });
+          console.log('json',json)
+            dispatch({ type: 'DELETE_PRODUCT', payload:json});
             console.log('product deleted successfully!');
             toast.warning('product  deleted successfully!');
             }

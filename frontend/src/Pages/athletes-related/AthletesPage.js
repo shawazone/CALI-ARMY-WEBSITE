@@ -14,7 +14,7 @@ const AthletePage = () => {
       const json = await response.json()
      
       if (response.ok) {
-         console.log(json)
+      
         setAthletes(json)
         // dispatch({type:'SET_WORKOUTS', payload:json})
       } }
@@ -22,7 +22,7 @@ const AthletePage = () => {
     fetchAthletes()
   },[])
 
-  console.log(athletes);
+
   return (
     <div className="flex flex-wrap justify-center ">
     {athletes.length === 0 ? (

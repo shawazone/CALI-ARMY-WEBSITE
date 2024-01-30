@@ -35,6 +35,10 @@ import ProductsMangementPage from "./Pages/Admin-related/Products-managment/Prod
 import ProductForm from "./Pages/Admin-related/Products-managment/ProductForm";
 import ProductUpdateForm from "./Pages/Admin-related/Products-managment/ProductUpdateForm";
 
+import BlogsPage from "./Pages/Blogs-related/BlogsPage";
+import BlogManagementPage from "./Pages/Admin-related/Blog-management/BlogsMangementPage";
+import BlogForm from "./Pages/Admin-related/Blog-management/BlogForm";
+
 function App() {
   return (
     <div className="App " >
@@ -56,6 +60,8 @@ function App() {
             
             <Route path="/aboutus" element={<AboutUsPage  />} />
 
+            <Route path="/blogs" element={<BlogsPage/>} />
+
             <Route path="/admin" element={<AdminPage />} />
 
             <Route path="/admin/athletesManegement" element={<AthletesMangementPage/>} />
@@ -69,6 +75,12 @@ function App() {
             <Route path="/admin/productsManagement" element={<ProductsMangementPage/>} />
             <Route path="/admin/productsManagement/newProduct" element={<ProductForm/>} />  
             <Route path="/admin/productsManagement/:id" element={<ProductUpdateForm/>} />
+
+            <Route path="/admin/blogManagement" element={<BlogManagementPage/>} />
+            <Route path="/admin/blogManagement/newBlog" element={<BlogForm/>} />  
+            <Route path="/admin/blogManagement/:id" element={<ProductUpdateForm/>} />
+
+
 
             <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>

@@ -13,7 +13,7 @@ const mongoose = require('mongoose');
 // Get all products
 const getAllProducts = async (req, res) => {
     try{
-        const products = await Product.find({}).sort({createdAt: -1}); //sorts by most recent
+        const products = await Product.find({}).sort({createdAt: 1}); //sorts by most recent
         res.status(200).json(products);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -143,17 +143,17 @@ const deleteProductById = async (req, res) => {
         if(!mongoose.Types.ObjectId.isValid(id)){
             res.status(400).json({error: 'Invalid ID'})
         }
-        const product = await Product.findById(id);
+        const product = await Product.findByIdAndDelete(id);
         if(!product){
             return res.status(400).json({message: 'Product not found'});
         }
-        await Product.findByIdAndDelete(id);
-        res.status(200).json({message: 'Product deleted successfully'});
+        res.status(200).json(product);
     }catch (error){
         res.status(500).json({message: error.message});
     }
         
     };
+
 
 
     module.exports = {

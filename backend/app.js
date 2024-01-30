@@ -10,6 +10,7 @@ const cloudinary = require('cloudinary').v2;
 const athleteRouter = require('./routes/athleteRoutes');
 const productRouter = require('./routes/productRoutes');
 const eventRouter = require('./routes/eventRoutes');
+const blogRouter = require('./routes/blogRoutes');
 
 const uploadRouter = require('./routes/uploadRoutes');//upload route for cloudinary 
 
@@ -46,6 +47,7 @@ app.use('/api',  athleteRouter);
 app.use('/api',  productRouter);
 app.use('/api',  eventRouter);
 app.use('/api', uploadRouter);
+app.use('/api', blogRouter);
 
 
 // connect to mongodb
