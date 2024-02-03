@@ -20,7 +20,7 @@ export default function ProductsPage() {
   return (
     <div className="flex flex-wrap justify-center shadow-md ">
       {products.length === 0 ? (
-        <p className="text-xl font-bold">There are no products.</p>
+        <p className="text-xl font-bold">There are no products fetching.</p>
       ) : (
         products.map(product => (
           <ProductCard key={product._id} product={product} />
