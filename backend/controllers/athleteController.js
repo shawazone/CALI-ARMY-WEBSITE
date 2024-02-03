@@ -10,17 +10,37 @@ const mongoose = require('mongoose');
 
 
 
-
-// Get all athletes
+// Get all athletes with pagination
 const getAllAthletes = async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const pageSize = parseInt(req.query.pageSize) || 5;
+
   try {
-    const athletes = await Athlete.find({}).sort({createdAt: 1}); //sorts by most recent
-    res.status(200).json(athletes);
-  
+    const totalAthletes = await Athlete.countDocuments({});
+    const totalPages = Math.ceil(totalAthletes / pageSize);
+
+    const athletes = await Athlete.find({})
+      .sort({ createdAt: 1 })
+      .skip((page - 1) * pageSize)
+      .limit(pageSize);
+
+    res.status(200).json({ athletes, totalPages });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+// Get all athletes
+// const getAllAthletes = async (req, res) => {
+//   try {
+//     const athletes = await Athlete.find({}).sort({createdAt: 1}); //sorts by most recent
+//     res.status(200).json(athletes);
+  
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
 
 
 
