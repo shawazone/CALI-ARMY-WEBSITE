@@ -19,7 +19,7 @@ export default function EventsPage() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-col justify-center items-center">
       {events.length === 0 ? (
         <p className="text-xl font-bold">There are no event.</p>
       ) : (

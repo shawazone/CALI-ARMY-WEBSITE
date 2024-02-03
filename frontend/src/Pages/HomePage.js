@@ -13,17 +13,16 @@ const HomePage = () => {
     useEffect(() => {
       const fetchAthletes = async () => {
         try {
-          const response = await fetch('http://localhost:4000/api/athletes/');
+          const response = await fetch(`http://localhost:4000/api/athletes/?page=1&pageSize=3`);
           if (response.ok) {
             const json = await response.json();
-            const firstThreeAthletes = json.slice(0, 3);
-            setAthletes(firstThreeAthletes);
+            setAthletes(json.athletes);
           }
         } catch (error) {
           console.error('Error fetching athletes:', error);
         }
       };
-  
+    
       fetchAthletes();
     
       const fetchEvents = async () => {

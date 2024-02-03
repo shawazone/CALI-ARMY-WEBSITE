@@ -18,7 +18,7 @@ export default function ProductsPage() {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-center">
+    <div className="flex flex-wrap justify-center shadow-md ">
       {products.length === 0 ? (
         <p className="text-xl font-bold">There are no products.</p>
       ) : (
