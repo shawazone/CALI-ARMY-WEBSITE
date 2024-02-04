@@ -38,9 +38,9 @@ const NavBar = () => {
             Blog
           </Link>
         
-          <Link to="/programs" className="block text-xl text-white hover:text-red-400 p-4">
+          {/* <Link to="/programs" className="block text-xl text-white hover:text-red-400 p-4">
             Programs
-          </Link>
+          </Link> */}
           <Link to="/aboutus" className="block text-xl text-white hover:text-red-400 p-4">
             About Us
           </Link>
@@ -74,9 +74,9 @@ const NavBar = () => {
             Blog
           </Link>
 
-          <Link to="/programs" className="block hover:text-red-400 p-4">
+          {/* <Link to="/programs" className="block hover:text-red-400 p-4">
             Programs
-          </Link>
+          </Link> */}
           <Link to="/aboutus" className="block hover:text-red-400 p-4">
             About Us
           </Link>

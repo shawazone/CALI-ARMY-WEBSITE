@@ -32,7 +32,7 @@ const AthletePage = () => {
     <div>
       <div className="flex flex-wrap justify-center">
         {athletes.length === 0 ? (
-          <p className="text-xl font-bold">There are no athletes.</p>
+          <p className="text-xl font-bold">fetching athletes.</p>
         ) : (
           athletes.map((athlete) => (
             <AthleteCard key={athlete._id} athlete={athlete} />

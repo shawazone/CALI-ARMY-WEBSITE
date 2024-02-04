@@ -19,14 +19,23 @@ export default function ProductsPage() {
 
   return (
     <div className="flex flex-wrap justify-center shadow-md ">
-      {products.length === 0 ? (
-        <p className="text-xl font-bold">There are no products fetching.</p>
-      ) : (
-        products.map(product => (
-          <ProductCard key={product._id} product={product} />
-        ))
-      )}
-    </div>
+  {products.length === 0 ? (
+    <p className="text-xl font-bold">fetching products.</p>
+  ) : (
+    products.map((product) => (
+      <div key={product._id} className="relative m-4">
+        {/* Product Card */}
+        <ProductCard product={product} />
+
+        {/* Coming Soon Overlay */}
+        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-70 rounded-md">
+          <p className="text-white text-2xl font-bold">COMING SOON</p>
+        </div>
+      </div>
+    ))
+  )}
+</div>
+
   );
   
 }
