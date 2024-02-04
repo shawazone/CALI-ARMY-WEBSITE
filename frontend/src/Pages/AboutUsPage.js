@@ -3,6 +3,7 @@ import React from 'react'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const handleClick = () => {
   toast.success('STFU!');
   toast.error(' L!');
@@ -58,6 +59,7 @@ export default function AboutUsPage() {
       </button>
     </div>
 
+
     {/* Founders Image */}
     <div className="mt-8">
       <img
@@ -79,6 +81,8 @@ export default function AboutUsPage() {
     alt="Large Team"
     className="w-full max-w-screen rounded mx-auto mt-8"
   />
+
+  
 </>
 
   )

@@ -113,9 +113,10 @@ ALL ATHLETES
       <h1 className="text-4xl font-bold m-4 text-center">Upcoming Events</h1>
 
       {nearestEvent ? (
-        <div className="border p-4 m-4 max-w-80 h-auto transition-transform transform-gpu hover:scale-105 ">
-          <img src={nearestEvent.eventImages && nearestEvent.eventImages.length > 0 ? nearestEvent.eventImages[0] : 'placeholder-image-url'} alt={`${nearestEvent.eventName}`} className="mt-4 w-60 h-80 object-cover" />
-          <h2 className="text-xl font-bold mb-2">{nearestEvent.eventName}</h2>
+        <div className="border p-4 m-4    hover:scale-105 ">
+           <h2 className="text-xl text-center font-bold mb-2">{nearestEvent.eventName}</h2>
+          <img src={nearestEvent.eventImages && nearestEvent.eventImages.length > 0 ? nearestEvent.eventImages[0] : 'placeholder-image-url'} alt={`${nearestEvent.eventName}`} className="mt-4 w-full  object-contain" />
+         
           <Link to={`/events/${nearestEvent._id}`} className="text-blue-500 block mt-2">View Details</Link>
         </div>
       ) : (
