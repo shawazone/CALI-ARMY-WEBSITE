@@ -11,28 +11,32 @@ import AthleteManagmentCard from '../../../Components/Cards/Athletes-related/Ath
 const AthletePage = () => {
   // const [athletes, setAthletes] = useState([]);
   const {athletes, dispatch}= useAthletesContext() 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchAthletes = async () => {
-      const response = await fetch('http://localhost:4000/api/athletes/')
-      const json = await response.json()
-      
-     
+      const response = await fetch(`http://localhost:4000/api/athletes?page=${currentPage}`);
+      const data = await response.json();
+
       if (response.ok) {
-        //  console.log(json)
-        //  setAthletes(json)
-        dispatch({type:'SET_ATHLETES', payload:json})
-      
-        // dispatch({type:'SET_WORKOUTS', payload:json})
-      }else{
-        console.log("error")
+        // setAthletes(data.athletes);
+        dispatch({ type: 'SET_ATHLETES', payload: data.athletes });
+        setTotalPages(data.totalPages);
+      } else {
+        console.log('Error fetching athletes');
       }
-     }
+    };
 
-    fetchAthletes()
-  },[])
+    fetchAthletes();
+  }, [currentPage]);
 
-  console.log(athletes);
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
+
   return (
     <>
     <div className='flex justify-center items-start mt-4 mb-14 w-full lg:w-2/3 xl:w-1/2 mx-auto'>
@@ -58,6 +62,23 @@ const AthletePage = () => {
           <p>No athletes available</p>
         )}
     </div>
+    <div className="flex justify-center mt-4">
+        <button
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+          className="mx-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-black"
+        >
+          {`< Prev (${currentPage - 1})`}
+        </button>
+        <span className="text-xl mx-2">{currentPage}</span>
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+          className="mx-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-black"
+        >
+          {`Next (${currentPage + 1}) >`}
+        </button>
+      </div>
   </>
 
   );

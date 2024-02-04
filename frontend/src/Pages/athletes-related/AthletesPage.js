@@ -57,6 +57,7 @@ const AthletePage = () => {
           {`Next (${currentPage + 1}) >`}
         </button>
       </div>
+    
     </div>
   );
 };

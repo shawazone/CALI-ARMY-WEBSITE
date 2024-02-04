@@ -2,7 +2,7 @@ import React from 'react'
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import ImageSlider from '../Components/ImageSlider';
 
 const handleClick = () => {
   toast.success('STFU!');
@@ -22,8 +22,45 @@ const handleClick = () => {
     
     });
 
+   
+
 }
 export default function AboutUsPage() {
+
+  const images = [
+    '/homePics/Bars2.png',
+    '/homePics/baki-planche.jpg',
+    '/homePics/big-team-transformed.jpeg',
+    // Add more image URLs as needed
+  ];
+  const physiqueData =[
+    './About-us-page/bodiesData/karim-body.jpg',
+    './About-us-page/bodiesData/monty-body.jpg',
+    // './About-us-page/bodiesData/omar-body.jpg',
+    './About-us-page/bodiesData/steel-body.jpg',
+  ]
+  
+  const eventsData =[
+    './About-us-page/eventsData/judges.jpg',
+    './About-us-page/eventsData/big-team.jpg',
+    './About-us-page/eventsData/baki-cup.jpg',
+    './About-us-page/eventsData/cali-battles.jpg',
+    './About-us-page/eventsData/freddy-cup.jpg',
+
+  ]
+  const skillsData =[
+    './About-us-page/skillsData/baki-abboudi.jpg',
+    './About-us-page/skillsData/baki-front.png',
+    './About-us-page/skillsData/baki-handstand.jpg',
+    './About-us-page/skillsData/monty.jpg',
+    './About-us-page/skillsData/omar-d.jpg',
+    './About-us-page/skillsData/ouss-handstand.jpg',
+  ]
+
+
+
+
+
   return (
 <>
   {/* Small Header with Image */}
@@ -74,13 +111,27 @@ export default function AboutUsPage() {
       4 inspired athletes SHAWA, YAHYA, GHASSAN, and KARIM started training together and decided to create a team to spread the culture of bodyweight training in Tripoli and Lebanon.
     </p>
   </div>
+  <div className="mt-8 w-full flex justify-center items-center  flex-col ">
+      <h2 className="text-2xl font-bold mb-4">Image Slider</h2>
+      <ImageSlider images={physiqueData} />
+    </div>
+
+    <div className="mt-8 w-full flex justify-center items-center  flex-col">
+      <h2 className="text-2xl font-bold mb-4">Image Slider</h2>
+      <ImageSlider images={skillsData} />
+    </div>
+
+    <div className="mt-8 w-full flex justify-center items-center  flex-col">
+      <h2 className="text-2xl font-bold mb-4">Image Slider</h2>
+      <ImageSlider images={eventsData} />
+    </div>
 
   {/* Large Team Image */}
-  <img
+  {/* <img
     src="homePics/big-team-transformed.jpeg"
     alt="Large Team"
     className="w-full max-w-screen rounded mx-auto mt-8"
-  />
+  /> */}
 
   
 </>
