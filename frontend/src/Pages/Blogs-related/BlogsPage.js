@@ -24,7 +24,7 @@ const BlogsPage = () => {
     <div className="flex justify-center mt-10 mx-3">
       <div className="flex flex-col items-center w-full max-w-4xl">
         {blogs.length === 0 ? (
-          <p className="text-xl font-bold">There are no blogs available.</p>
+          <p className="text-xl font-bold">fetching blogs.</p>
         ) : (
           blogs.map((blog) => <BlogCard key={blog._id} blog={blog} />)
         )}

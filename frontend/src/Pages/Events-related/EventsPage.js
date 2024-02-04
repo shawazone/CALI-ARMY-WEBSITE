@@ -21,7 +21,7 @@ export default function EventsPage() {
   return (
     <div className="flex flex-col justify-center items-center">
       {events.length === 0 ? (
-        <p className="text-xl font-bold">There are no event.</p>
+        <p className="text-xl font-bold">fetching events.</p>
       ) : (
         events.map(event => (
           <EventCard key={event._id} event={event} />
