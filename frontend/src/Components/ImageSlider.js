@@ -12,14 +12,14 @@ const ImageSlider = ({ images }) => {
   };
 
   return (
-    <div className="  w-full max-w-md rounded mx-auto h-full">
+    <div className="  w-2/3  max-w-md rounded-md shadow-md  h-full">
       <Slider {...settings}>
         {images.map((image, index) => (
-          <div key={index} className="object-contain">
+          <div key={index} className="">
             <img
               src={image}
               alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover rounded"
+              className="h-full object-cover rounded"
             />
           </div>
         ))}
