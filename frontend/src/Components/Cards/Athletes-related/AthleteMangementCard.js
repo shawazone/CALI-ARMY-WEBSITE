@@ -61,8 +61,8 @@ const AthleteManagmentCard = ({ athlete, onDelete, onUpdate }) => {
         <img
           src={process.env.PUBLIC_URL + '/instagram.png'}
           alt="Instagram Logo"
-          className="w-10 h-10 object-cover bg-red-500 border-2 hover:bg-red-400 border-red-600 hover:border-red-400 rounded-md mt-4"
-        />
+          className="w-10 h-10 object-cover rounded-lg mt-4 transition-transform transform hover:scale-125 "
+/>
       </Link>
       {isHovered && secondPic ? (
         <img src={secondPic} alt={`${athlete.name}'s Second element`} className="mt-4 w-60 h-80 object-cover" />

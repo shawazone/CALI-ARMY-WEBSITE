@@ -20,7 +20,7 @@ const AthleteCard = ({ athlete }) => {
       <Link to={athlete.insta}>
         <img
           src={process.env.PUBLIC_URL + '/instagram.png'} 
-          className="w-10 h-10 object-cover bg-red-500 border-2 hover:bg-red-400 border-red-600 hover:border-red-400 rounded-md mt-4"
+          className="w-8 h-8 object-cover rounded-lg mt-4 transition-transform transform hover:scale-125"
       >
         </img></Link>
 
@@ -37,7 +37,7 @@ const AthleteCard = ({ athlete }) => {
           className="mt-4 w-full h-80 object-cover rounded-md shadow-md"
         />
       )}
-       <Link to={`/athletes/${athlete._id}`} className="text-red-500 block mt-2">View Details</Link>
+       {/* <Link to={`/athletes/${athlete._id}`} className="text-red-500 block mt-2">View Details</Link> */}
     </div>
   );
 };
