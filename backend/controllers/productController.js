@@ -40,7 +40,7 @@ const getProdictById = async (req, res) => {
 
 
 // Create a new product
-
+// Added validation for empty fields
 const createProduct = async (req, res) => {
     const {name, description,price,quantity,  image} = req.body
 
@@ -84,6 +84,7 @@ const createProduct = async (req, res) => {
 
 
 // Update a product by ID
+// Added validation for empty fields
 const updateProductById = async (req, res) => {
     const {id} = req.params
     const {name,description,price,quantity,image} = req.body

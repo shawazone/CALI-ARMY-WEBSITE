@@ -42,6 +42,7 @@ const getEventById = async (req, res) => {
 };
 
 // Create a new event
+// Added validation for empty fields
 const createEvent = async (req, res) => {
   // const event = new Event(req.body);
   const {eventName, eventDate, eventTime, eventLocation, eventDescription, eventImages} = req.body
@@ -85,6 +86,7 @@ const createEvent = async (req, res) => {
 };
 
 // Update an event by ID
+// Added validation for empty fields
 const updateEventById = async (req, res) => {
   const {id} = req.params
   const {eventName, eventDate, eventTime, eventLocation, eventDescription, eventImages} = req.body

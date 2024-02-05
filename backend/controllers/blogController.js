@@ -37,6 +37,7 @@ const getBlogById = async (req,res) =>{
 
 
 // Create a new blog
+// Added valadation for empty fields
 const createBlog = async (req,res) =>{
     const {blogTitle, blogContent,blogAuthor, blogPic} = req.body
  let emptyFields = []
@@ -65,7 +66,7 @@ const createBlog = async (req,res) =>{
 
 
 // Update a blog by ID
-
+// Added validation for empty fields
 const updateBlog = async (req,res) =>{
     const {id} = req.params
     const {blogTitle, blogContent,blogAuthor, blogPic} = req.body

@@ -11,6 +11,13 @@ const mongoose = require('mongoose');
 
 
 // Get all athletes with pagination
+// 5 elements per page
+// 1. Get the page number from the query
+// 2. Get the page size from the query
+// 3. Calculate the total number of athletes
+// 4. Calculate the total number of pages
+// 5. Get the athletes from the database
+// 6. Send the athletes and the total number of pages to the client
 const getAllAthletes = async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const pageSize = parseInt(req.query.pageSize) || 5;
@@ -67,6 +74,7 @@ const getAthleteById = async (req, res) => {
 
 
 // Create a new athlete
+// Added validation for empty fields
 const createAthlete = async (req, res) => {
   // const athlete = new Athlete(req.body);
   const {name, specialty, description,insta,images} = req.body
@@ -108,6 +116,7 @@ const createAthlete = async (req, res) => {
 
 
 // Update an athlete by ID
+// Added validation for empty fields
 const updateAthleteById = async (req, res) => {
   const {id} = req.params
   const {name, specialty, description,insta,images} = req.body
