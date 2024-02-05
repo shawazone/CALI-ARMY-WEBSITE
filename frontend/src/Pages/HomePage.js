@@ -71,17 +71,17 @@ const HomePage = () => {
 
 />
 <div>
+ 
     <h1 className="text-2xl font-bold mb-2 text-center">Our Team</h1>
-    <p className="text-center">We are a team of a athletes who are passionate about teaching and sharing our knowledge with others. We are dedicated to helping you reach your goals and achieve your dreams.</p>
+    <p className="text-center text-xl mx-10">We are a team of a athletes who are passionate about sharing our knowledge with others. We are dedicated to helping you reach your goals and achieve your dreams.</p>
+
 <div className="flex flex-wrap justify-center">
 
   {athletes.length === 0 ? (
     <p className="text-xl font-bold">There are no athletes.</p>
   ) : (
     athletes.map((athlete) => (
-      <Link to={`/athletes/${athlete._id}`} key={athlete._id} state={{ athlete }}>
         <AthleteCard athlete={athlete} />
-      </Link>
     ))
   )}
 </div>
@@ -105,7 +105,9 @@ ALL ATHLETES
     </div> */}
  <div className="absolute top-3/4 right-4   text-white text-shadow-black ">
   <button className="bg-red-500 hover:bg-white text-white  hover:text-red-500 px-5 lg-5  rounded sm:px-4 sm:py-2 md:px-15 md:py-4 lg:px-20 lg:py-5">
-    Check Blog
+  <Link to="/blogs">
+  Check Blog
+  </Link>
   </button>
 </div>
   </div>
@@ -148,7 +150,9 @@ ALL ATHLETES
     </div> */}
  <div className="absolute top-3/4 right-1/4 text-white text-shadow-black ">
   <button className="bg-red-500 hover:bg-white text-white  hover:text-red-500 px-5 lg-5  rounded sm:px-2 sm:py-1   md:px-15 md:py-4 lg:px-20 lg:py-5">
+  <Link to="/blogs">
   Check Blog
+  </Link>
   </button>
 </div>
 </div>
