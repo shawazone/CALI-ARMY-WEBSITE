@@ -50,7 +50,7 @@ const BlogMangementCard = ({ blog }) => {
       )}
       <div className="p-4">
         <h2 className="text-xl font-bold mb-2">{blog.blogTitle}</h2>
-        <p className="text-gray-600">{blog.blogContent}</p>
+        {/* <p className="text-gray-600">{blog.blogContent}</p> */}
         <p className="text-gray-500 mt-2">Author: {blog.blogAuthor}</p>
       </div>
 

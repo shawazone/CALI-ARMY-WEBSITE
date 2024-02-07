@@ -41,6 +41,7 @@ import ProductUpdateForm from "./Pages/Admin-related/Products-managment/ProductU
 import BlogManagementPage from "./Pages/Admin-related/Blog-management/BlogsMangementPage";
 import BlogForm from "./Pages/Admin-related/Blog-management/BlogForm";
 import BlogUpdateForm from "./Pages/Admin-related/Blog-management/BlogUpdateForm";
+import SingleBlogPage from "./Pages/Blogs-related/SingleBlogPage";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
             <Route path="/aboutus" element={<AboutUsPage  />} />
 
             <Route path="/blogs" element={<BlogsPage/>} />
+            <Route path="/blogs/:id" element={<SingleBlogPage/>} />
 
             <Route path="/admin" element={<AdminPage />} />
 
