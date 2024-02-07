@@ -12,6 +12,7 @@ const BlogsPage = () => {
       try {
         const response = await axios.get('http://localhost:4000/api/blogs');
         setBlogs(response.data);
+        
       } catch (error) {
         console.error('Error fetching blogs:', error);
       }
@@ -27,6 +28,7 @@ const BlogsPage = () => {
           <p className="text-xl font-bold">fetching blogs.</p>
         ) : (
           blogs.map((blog) => <BlogCard key={blog._id} blog={blog} />)
+          
         )}
       </div>
     </div>
