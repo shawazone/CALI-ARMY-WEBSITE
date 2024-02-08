@@ -44,6 +44,9 @@ const NavBar = () => {
           <Link to="/aboutus" className="block text-xl text-white hover:text-red-400 p-4">
             About Us
           </Link>
+          <Link to="/admin" className="block text-xl text-white hover:text-red-400 p-4">
+            Admin
+          </Link>
             </div>
              
   
@@ -79,6 +82,9 @@ const NavBar = () => {
           </Link> */}
           <Link to="/aboutus" className="block hover:text-red-400 p-4">
             About Us
+          </Link>
+          <Link to="/admin" className="block hover:text-red-400 p-4">
+            Admin
           </Link>
         </div>
       </nav>
