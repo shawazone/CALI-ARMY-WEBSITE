@@ -48,7 +48,7 @@ const NavBar = () => {
             Admin
           </Link>
             </div>
-             {/* uwu */}
+         {/* u */}
   
           {/* Button to toggle the menu on small screens */}
           <button
