@@ -48,7 +48,7 @@ const HomePage = () => {
     
     <div className="relative">
     <img
-      src="homePics/Bars2.png"  
+      src="homePics/Bars2.webp"  
       alt="Description of the "
       className="w-full h-1/5 object-cover"
     />
@@ -64,7 +64,7 @@ const HomePage = () => {
 </div>
   </div>
 <img
-  src="homePics/baki-planche2.png" 
+  src="homePics/baki-planche2.webp" 
   alt="Description of the "
   className="w-full h-1/5 my-3"
   
@@ -95,7 +95,7 @@ ALL ATHLETES
 </div>
 <div className="relative">
     <img
-      src={process.env.PUBLIC_URL + '/homePics/SteelHandStand.png'} 
+      src={process.env.PUBLIC_URL + '/homePics/SteelHandStand.webp'} 
       alt="Description of the "
       className="w-full h-1/5 object-cover"
     />
@@ -140,7 +140,7 @@ ALL ATHLETES
 
 <div className="relative">
     <img
-      src={process.env.PUBLIC_URL + '/homePics/Rings2.2.png'} 
+      src={process.env.PUBLIC_URL + '/homePics/Rings2.2.webp'} 
       alt="Description of the "
       className="w-full h-1/5 object-cover"
     />
