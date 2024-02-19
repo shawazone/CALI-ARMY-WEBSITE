@@ -68,7 +68,7 @@ export default function AboutUsPage() {
   {/* Small Header with Image */}
   <div className="relative w-full overflow-hidden text-center">
     <img
-      src="homePics/squad-pic.png"
+      src="homePics/squad-pic.webp"
       alt="Small Header"
       className="w-full h-full object-cover rounded"
     />
