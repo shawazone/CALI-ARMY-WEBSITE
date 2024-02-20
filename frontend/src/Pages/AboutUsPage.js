@@ -28,35 +28,35 @@ const handleClick = () => {
 export default function AboutUsPage() {
 
   const images = [
-    '/homePics/Bars2.png',
-    '/homePics/baki-planche.jpg',
-    '/homePics/big-team-transformed.jpeg',
+    '/homePics/Bars2.webp',
+    '/homePics/baki-planche.webp',
+    '/homePics/big-team-transformed.webp',
     // Add more image URLs as needed
   ];
   const physiqueData =[
-    './About-us-page/bodiesData/karim-body.jpg',
-    './About-us-page/bodiesData/monty-body.jpg',
-    // './About-us-page/bodiesData/omar-body.jpg',
-    './About-us-page/bodiesData/steel-body.jpg',
+    './About-us-page/bodiesData/karim-body.webp',
+    './About-us-page/bodiesData/monty-body.webp',
+    // './About-us-page/bodiesData/omar-body.webp',
+    './About-us-page/bodiesData/steel-body.webp',
   ]
   
   const eventsData =[
-    './About-us-page/eventsData/judges.jpg',
-    './About-us-page/eventsData/big-team.jpg',
-    './About-us-page/eventsData/baki-cup.png',
-    './About-us-page/eventsData/cali-battles.jpg',
-    './About-us-page/eventsData/freddy-cup.jpg',
-    './About-us-page/eventsData/arena.jpg',
+    './About-us-page/eventsData/judges.webp',
+    './About-us-page/eventsData/big-team.webp',
+    './About-us-page/eventsData/baki-cup.webp',
+    './About-us-page/eventsData/cali-battles.webp',
+    './About-us-page/eventsData/freddy-cup.webp',
+    './About-us-page/eventsData/arena.webp',
 
 
   ]
   const skillsData =[
-    './About-us-page/skillsData/baki-handstand.jpg',
-    './About-us-page/skillsData/baki-abboudi.jpg',
+    './About-us-page/skillsData/baki-handstand.webp',
+    './About-us-page/skillsData/baki-abboudi.webp',
     // './About-us-page/skillsData/baki-front.png',
-    './About-us-page/skillsData/monty.jpg',
-    './About-us-page/skillsData/omar-d.jpg',
-    './About-us-page/skillsData/ouss-handstand.jpg',
+    './About-us-page/skillsData/monty.webp',
+    './About-us-page/skillsData/omar-d.webp',
+    './About-us-page/skillsData/ouss-handstand.webp',
   ]
 
 
@@ -104,7 +104,7 @@ As the leading Calisthenics Team in Tripoli, Lebanon, our mission revolves aroun
     {/* Founders Image */}
     <div className="mt-8 ">
       <img
-        src="homePics/the-founders-transformed.png"
+        src="homePics/the-founders-transformed.webp"
         alt="Founders"
         className="w-2/3 max-w-md  mx-auto rounded-md shadow-md"
       />
@@ -133,7 +133,7 @@ As the leading Calisthenics Team in Tripoli, Lebanon, our mission revolves aroun
 
   {/* Large Team Image */}
   <img
-    src="about-us-page/bars.png"
+    src="about-us-page/bars.webp"
     alt="Large Team"
     className="w-full max-w-screen rounded mx-auto mt-8"
   />
