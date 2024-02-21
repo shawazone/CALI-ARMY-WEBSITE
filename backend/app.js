@@ -12,6 +12,10 @@ const productRouter = require('./routes/productRoutes');
 const eventRouter = require('./routes/eventRoutes');
 const blogRouter = require('./routes/blogRoutes');
 
+const LoginRouter = require('./routes/loginRoutes');
+const RegisterRouter = require('./routes/RegisterRoutes');
+const ProtectedRouter = require('./routes/ProtectedRoutes');
+
 const uploadRouter = require('./routes/uploadRoutes');//upload route for cloudinary 
 
 
@@ -48,6 +52,9 @@ app.use('/api',  productRouter);
 app.use('/api',  eventRouter);
 app.use('/api', uploadRouter);
 app.use('/api', blogRouter);
+app.use('/api', LoginRouter);
+app.use('/api', RegisterRouter);
+app.use('/api', ProtectedRouter);
 
 
 // connect to mongodb

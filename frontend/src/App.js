@@ -43,6 +43,10 @@ import BlogForm from "./Pages/Admin-related/Blog-management/BlogForm";
 import BlogUpdateForm from "./Pages/Admin-related/Blog-management/BlogUpdateForm";
 import SingleBlogPage from "./Pages/Blogs-related/SingleBlogPage";
 
+
+import RegisterPage from "./Pages/RegisterPage";
+import LoginPage from "./Pages/LoginPage";
+
 function App() {
   return (
     <div className="App " >
@@ -85,7 +89,8 @@ function App() {
             <Route path="/admin/blogsManagement/newBlog" element={<BlogForm/>} />  
             <Route path="/admin/blogsManagement/:id" element={<BlogUpdateForm/>} />
 
-
+            <Route path="/register" element={<RegisterPage/>} />
+            <Route path="/login" element={<LoginPage/>} />
 
             <Route path="*" element={<h1>Not Found</h1>} />
           </Routes>
