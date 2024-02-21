@@ -24,15 +24,17 @@ router.post('/login', async (req, res) => {
 
     // Password is valid, authentication successful
     // Generate JWT
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ userId: user._id,username }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
     // Send token to client
-    res.status(200).json({ message: 'Login successful', token });
+    res.status(200).json({ message: 'Login successfull', token ,username, userId: user._id});
+    
 
   } catch (error) {
     console.error('Error logging in:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 
 module.exports = router;

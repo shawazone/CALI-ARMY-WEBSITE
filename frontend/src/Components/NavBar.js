@@ -3,12 +3,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-const NavBar = () => {
+const NavBar = ({isLoggedIn, onLogout}) => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
       setIsMenuOpen(!isMenuOpen);
+    };
+
+    const handleLogout = () => {
+      // Perform logout logic (e.g., clear localStorage, update login state)
+      onLogout();
     };
 
 
@@ -47,6 +52,9 @@ const NavBar = () => {
           <Link to="/admin" className="block text-xl text-white hover:text-red-400 p-4">
             Admin
           </Link>
+          {isLoggedIn ? (
+          <><button onClick={handleLogout}>Logout</button></>
+        ) : null}
             </div>
          {/* u */}
   

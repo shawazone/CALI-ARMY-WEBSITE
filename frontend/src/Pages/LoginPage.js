@@ -18,12 +18,12 @@ const LoginForm = ({ onLogin }) => {
       });
 
       if (response.ok) {
-        // const data = await response.json();
+        const data = await response.json();
         // Call onLogin function with the token received from the backend
-        const { token } = await response.json();
-        localStorage.setItem('token', token); // Store the JWT in localStorage
-        // onLogin();
-         // Notify the parent component of successful login
+        // const { token } = await response.json();
+        // localStorage.setItem('token', token); // Store the JWT in localStorage
+        // console.log('Login successful');
+        console.log('Data:', data);
       } else {
         console.error('Login failed');
       }
