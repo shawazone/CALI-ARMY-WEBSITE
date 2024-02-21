@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react"; // 🚫🚫🚫❌❌❌
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -48,10 +50,20 @@ import RegisterPage from "./Pages/RegisterPage";
 import LoginPage from "./Pages/LoginPage";
 
 function App() {
+  // 🚫🚫🚫❌❌❌
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    // Perform logout logic (e.g., clear localStorage)
+    setIsLoggedIn(false);
+  };
+  // 🚫🚫🚫❌❌❌
+
   return (
     <div className="App " >
       <BrowserRouter>
-        <NavBar />
+        <NavBar isLoggedIn={isLoggedIn} onLogout={handleLogout}/>
         <div className="pages flex flex-col min-h-screen">
           <Routes>
             <Route path="/" element={<HomePage />} />
