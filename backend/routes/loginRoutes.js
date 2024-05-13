@@ -28,11 +28,12 @@ router.post('/login', async (req, res) => {
 
     // Send token to client
     res.status(200).json({ message: 'Login successfull', token ,username, userId: user._id});
-    
+    // still workin on it
 
   } catch (error) {
     console.error('Error logging in:', error);
     res.status(500).json({ message: 'Internal server error' });
+  
   }
 });
 
