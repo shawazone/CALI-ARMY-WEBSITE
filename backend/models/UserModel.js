@@ -33,9 +33,9 @@ userSchema.statics.signup = async function(email, password) {
         throw Error('Invalid email');
         res.status(400).json({error: 'Email is invalid'})
     }
-    if(!validator.isStrongPassword(password)){
-       throw Error('Password must be at least 8 characters long, and contain at least one uppercase letter, one lowercase letter, one number and one special character');
-     }
+    // if(!validator.isStrongPassword(password)){
+    //    throw Error('Password must be at least 8 characters long, and contain at least one uppercase letter, one lowercase letter, one number and one special character');
+    //  }
     //sitll wrokin in it
 
 
